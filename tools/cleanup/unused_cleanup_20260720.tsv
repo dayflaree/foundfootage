@@ -1,0 +1,567 @@
+path	bytes	reason
+content/sound/bs_xen_mantaride_crash.wav	6832160	unreachable from active sound pools and model events
+content/sound/controllerjack_recover.wav	519244	unreachable from active sound pools and model events
+content/sound/crounchandjump/player_jump_1.wav	62420	unreachable from active sound pools and model events
+content/sound/crounchandjump/player_jump_2.wav	61820	unreachable from active sound pools and model events
+content/sound/crounchandjump/player_jump_3.wav	68818	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/air_conditioner-02.ogg	176247	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/boat_bell-01.ogg	21301	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/boat_bell-02.ogg	24720	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/boat_creak-01.ogg	51311	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/boat_creak-03.ogg	56791	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/boat_creak-04.ogg	56770	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_bell-02.ogg	19328	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_bell-03.ogg	19377	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_bell-04.ogg	24631	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_bell-05.ogg	23915	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_ring-01.ogg	46095	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_ring-02.ogg	41617	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_ring-04.ogg	44407	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/buoy_ring-05.ogg	42046	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_debris-01.ogg	40699	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_debris-02.ogg	25289	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_debris-03.ogg	31991	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_debris-04.ogg	30212	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_rattle-01.ogg	64731	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_rattle-02.ogg	58805	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_rattle-03.ogg	69283	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/car_rattle-04.ogg	71988	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-01.ogg	23264	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-02.ogg	30065	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-03.ogg	84766	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-04.ogg	67999	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-05.ogg	72594	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-06.ogg	32659	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-07.ogg	37906	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-08.ogg	42598	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-09.ogg	29387	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-10.ogg	18514	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-11.ogg	42453	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-12.ogg	49651	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-13.ogg	27355	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-14.ogg	32753	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/combine_soldier_radio_talk-15.ogg	35894	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/computer_idle-02.ogg	67044	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/computer_idle-03.ogg	68019	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/computer_loop-01.ogg	74841	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/computer_loop-03.ogg	66868	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/console_borp-01.ogg	32381	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/console_borp-02.ogg	31476	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/console_borp-03.ogg	44803	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/console_borp-04.ogg	32386	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/console_borp-05.ogg	31785	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/dryer_run-02.ogg	424007	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_chainlink_rattle-01.ogg	73735	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_chainlink_rattle-02.ogg	66557	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_chainlink_rattle-04.ogg	87483	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_chainlink_rattle-05.ogg	74889	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_chainlink_rattle-07.ogg	100534	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_rattle-01.ogg	25056	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_rattle-03.ogg	21903	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fence_rattle-04.ogg	17486	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/flourescent_buzz-02.ogg	52036	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/flourescent_buzz-04.ogg	46277	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/flourescent_buzz-05.ogg	19228	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fly_buzz-01.ogg	20409	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fly_buzz-02.ogg	39556	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fly_buzz-03.ogg	40316	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fly_buzz-04.ogg	43004	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fridge_hum-02.ogg	146356	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/fridge_hum-04.ogg	131236	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_machine-01.ogg	75646	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_machine-02.ogg	74731	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_machine-03.ogg	92103	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_radio-01.ogg	101259	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_radio-02.ogg	101373	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_radio-04.ogg	94225	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/generic_radio-05.ogg	95218	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/light_flicker-01.ogg	28845	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/light_flicker-03.ogg	33012	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/light_flicker-04.ogg	43900	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_cargo_hit-01.ogg	26762	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_cargo_hit-02.ogg	19272	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_cargo_hit-03.ogg	21022	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_cargo_hit-04.ogg	17036	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_cargo_hit-05.ogg	29444	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_cargo_hit-06.ogg	23605	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-01.ogg	15960	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-02.ogg	11952	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-03.ogg	16010	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-04.ogg	16389	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-05.ogg	16760	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-06.ogg	16360	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-07.ogg	16901	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_drum_settle-08.ogg	18751	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-01.ogg	40849	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-02.ogg	16976	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-03.ogg	28632	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-04.ogg	25588	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-05.ogg	29381	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-06.ogg	16823	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-07.ogg	19061	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-08.ogg	25292	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metal_hit_deep-09.ogg	32089	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metalshelf_creak-01.ogg	14524	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metalshelf_creak-02.ogg	16365	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metalshelf_creak-03.ogg	18700	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/metalshelf_creak-04.ogg	15758	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/no.ogg	9717	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/okay.ogg	21858	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pipe_hit-01.ogg	23379	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pipe_hit-03.ogg	20404	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pipe_hit-04.ogg	28226	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_metal-01.ogg	48412	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_metal-02.ogg	45140	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_metal-03.ogg	37793	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_metal-04.ogg	39802	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_metal-05.ogg	43864	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_metal-06.ogg	48672	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_wood-01.ogg	25063	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_wood-02.ogg	22743	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_wood-03.ogg	14445	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_wood-04.ogg	16207	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/pole_wood-05.ogg	18472	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/power_machine-01.ogg	92451	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/power_machine-03.ogg	103521	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radiator-01.ogg	132677	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radiator-02.ogg	178870	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radiator-04.ogg	48836	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radiator-05.ogg	117930	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radiator-06.ogg	115958	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_distort-01.ogg	13232	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_distort-03.ogg	13253	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_distort-04.ogg	15222	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_loop1.ogg	70679	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_tuning-02.ogg	35284	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_voices-01.ogg	24160	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_voices-02.ogg	14339	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_voices-03.ogg	18187	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_voices-05.ogg	18362	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_voices-06.ogg	24493	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/radio_voices-07.ogg	27428	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-01.ogg	52429	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-02.ogg	84069	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-03.ogg	56097	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-04.ogg	47156	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-05.ogg	69870	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-06.ogg	62534	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-07.ogg	65686	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-08.ogg	60013	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rare_grave_spook-09.ogg	52971	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-01.ogg	14258	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-02.ogg	11367	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-03.ogg	20289	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-04.ogg	21544	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-05.ogg	19730	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-06.ogg	20642	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-07.ogg	24364	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-08.ogg	24371	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_debris-09.ogg	22155	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_slide-01.ogg	39117	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_slide-02.ogg	69323	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_slide-03.ogg	50968	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_slide-04.ogg	43520	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/rock_slide-05.ogg	48303	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-01.ogg	52202	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-02.ogg	32864	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-03.ogg	24196	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-05.ogg	130089	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-06.ogg	78614	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-07.ogg	33913	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-08.ogg	24545	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_activity-09.ogg	63354	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_bip-01.ogg	8037	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_bip-02.ogg	25636	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_bip-04.ogg	10063	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_bip-05.ogg	4726	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/server_bip-06.ogg	15327	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_noise-01.ogg	46458	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_noise-03.ogg	29695	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_noise-04.ogg	46502	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_noise-05.ogg	31703	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_noise-06.ogg	27990	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-01.ogg	37163	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-02.ogg	31416	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-03.ogg	46089	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-05.ogg	58718	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-06.ogg	70650	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-07.ogg	61339	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/shaft_rattle-08.ogg	45399	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/sign_metalscratch-01.ogg	20894	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/sign_metalscratch-02.ogg	28960	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/sign_metalscratch-03.ogg	24306	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/sign_metalscratch-04.ogg	22247	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/sign_metalscratch-05.ogg	24411	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/sign_metalscratch-06.ogg	23954	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/silencefoulcreature.ogg	3979	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/transformer_hum-02.ogg	167906	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/transformer_hum-03.ogg	150088	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/transformer_hum-05.ogg	177727	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-01.ogg	31183	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-02.ogg	29036	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-04.ogg	44273	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-05.ogg	71755	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-06.ogg	32507	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-08.ogg	36529	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-09.ogg	21617	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-10.ogg	28390	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-11.ogg	21318	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-12.ogg	68593	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-13.ogg	71273	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_creak-14.ogg	58178	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_leaves-03.ogg	55528	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_leaves-04.ogg	79834	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_leaves-05.ogg	21237	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-01.ogg	104896	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-02.ogg	131503	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-03.ogg	83710	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-04.ogg	101022	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-05.ogg	101526	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-06.ogg	95870	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-07.ogg	107576	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-08.ogg	126547	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/tree_wind-09.ogg	61049	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/treewind1.ogg	293728	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/treewind3.ogg	244272	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/treewind4.ogg	255717	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/vent-02.ogg	325426	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/vent-04.ogg	320518	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/vent-05.ogg	308708	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/washer_run-01.ogg	554933	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/washer_run-03.ogg	366231	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/washer_run-04.ogg	107581	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/water_drip_sink_tub1.ogg	12184	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/water_drip_sink_tub2.ogg	16400	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/water_drip_sink_tub3.ogg	18547	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/water_drip_sink_tub4.ogg	12354	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/water_drip_sink_tub5.ogg	15928	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/watertower-01.ogg	48928	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/watertower-02.ogg	44951	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/watertower-03.ogg	68049	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/watertower-04.ogg	48347	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/watertower-05.ogg	80085	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/watertower-06.ogg	58397	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wind_oneshot-01.ogg	47316	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wind_oneshot-02.ogg	47418	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wind_oneshot-03.ogg	78666	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_creak-01.ogg	54390	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_creak-02.ogg	63442	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_creak-03.ogg	38292	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_creak-05.ogg	29322	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-01.ogg	17263	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-03.ogg	11407	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-04.ogg	10872	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-05.ogg	12873	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-06.ogg	11986	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-08.ogg	12849	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-09.ogg	12602	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-10.ogg	13636	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-11.ogg	15303	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_int_creak-12.ogg	12146	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_light_creak-01.ogg	29953	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_light_creak-02.ogg	33441	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_light_creak-03.ogg	33415	unreachable from active sound pools and model events
+content/sound/dynamic_prop_sounds/wood_light_creak-05.ogg	58967	unreachable from active sound pools and model events
+content/sound/fallingwind/bhopwind.wav	27266804	unreachable from active sound pools and model events
+content/sound/fallingwind/mirrorsedge.wav	5404940	unreachable from active sound pools and model events
+content/sound/fallingwind/woosh1.wav	69582	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_breathing_03.ogg	10349	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_breathing_08.ogg	12804	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_breathing_09.ogg	12351	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_creep_03.ogg	16921	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_creep_06.ogg	11537	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_creep_07.ogg	22252	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_creep_09.ogg	11440	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_creep_10.ogg	11042	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_lightbreak_01.ogg	9987	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_lightbreak_02.ogg	9718	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_lightbreak_03.ogg	9951	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_lynchmetal_07.ogg	11218	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalchirp_03.ogg	8418	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalchirp_04.ogg	10750	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalchirp_05.ogg	12040	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalchirp_07.ogg	13241	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalhit_01.ogg	16400	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalhit_03.ogg	16640	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalhit_05.ogg	31611	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalhit_07.ogg	16627	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalhit_10.ogg	26065	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalstress_03.ogg	40300	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_metalstress_04.ogg	43190	unreachable from active sound pools and model events
+content/sound/gm_paranormal/1shot_motion_01.ogg	22245	unreachable from active sound pools and model events
+content/sound/gm_paranormal/attention_getter_04.ogg	25092	unreachable from active sound pools and model events
+content/sound/gm_paranormal/attention_getter_05.ogg	19944	unreachable from active sound pools and model events
+content/sound/gm_paranormal/baby01.wav	479630	unreachable from active sound pools and model events
+content/sound/gm_paranormal/baby02.wav	317790	unreachable from active sound pools and model events
+content/sound/gm_paranormal/baby02c.wav	794422	unreachable from active sound pools and model events
+content/sound/gm_paranormal/bsplat_11.ogg	9009	unreachable from active sound pools and model events
+content/sound/gm_paranormal/creepy_moaning.ogg	45853	unreachable from active sound pools and model events
+content/sound/gm_paranormal/creepy_scrape4.wav	424774	unreachable from active sound pools and model events
+content/sound/gm_paranormal/creepy_screech.wav	279918	unreachable from active sound pools and model events
+content/sound/gm_paranormal/cry_01.ogg	45808	unreachable from active sound pools and model events
+content/sound/gm_paranormal/crying_01.ogg	39279	unreachable from active sound pools and model events
+content/sound/gm_paranormal/crying_02.ogg	64221	unreachable from active sound pools and model events
+content/sound/gm_paranormal/crying_03.ogg	30610	unreachable from active sound pools and model events
+content/sound/gm_paranormal/crying_04.ogg	31458	unreachable from active sound pools and model events
+content/sound/gm_paranormal/crying_05.ogg	33031	unreachable from active sound pools and model events
+content/sound/gm_paranormal/crying_06.ogg	25407	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_01.ogg	16093	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_02.ogg	24023	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_03.ogg	21955	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_04.ogg	36092	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_05.ogg	31785	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_06.ogg	24193	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_07.ogg	27229	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_08.ogg	26914	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_09.ogg	23173	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_10.ogg	22557	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_12.ogg	36509	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_15.ogg	20642	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_16.ogg	22555	unreachable from active sound pools and model events
+content/sound/gm_paranormal/devilbaby_21.ogg	13966	unreachable from active sound pools and model events
+content/sound/gm_paranormal/dreamscape_7s.ogg	31630	unreachable from active sound pools and model events
+content/sound/gm_paranormal/drone1lp.wav	275644	unreachable from active sound pools and model events
+content/sound/gm_paranormal/drone2lp.wav	282300	unreachable from active sound pools and model events
+content/sound/gm_paranormal/drone3lp.wav	74300	unreachable from active sound pools and model events
+content/sound/gm_paranormal/drone4lp.wav	292030	unreachable from active sound pools and model events
+content/sound/gm_paranormal/enemy_bird_alert_1.wav	101174	unreachable from active sound pools and model events
+content/sound/gm_paranormal/generator1lp.wav	250638	unreachable from active sound pools and model events
+content/sound/gm_paranormal/generator2lp.wav	84668	unreachable from active sound pools and model events
+content/sound/gm_paranormal/hit1.wav	31034	unreachable from active sound pools and model events
+content/sound/gm_paranormal/hit2.wav	41338	unreachable from active sound pools and model events
+content/sound/gm_paranormal/hit3.wav	31674	unreachable from active sound pools and model events
+content/sound/gm_paranormal/hit4.wav	24282	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_01.ogg	24851	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_02.ogg	24291	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_03.ogg	43039	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_04.ogg	23627	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_05.ogg	32818	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_06.ogg	35760	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_07.ogg	36123	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_08.ogg	37704	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_09.ogg	24697	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_10.ogg	25274	unreachable from active sound pools and model events
+content/sound/gm_paranormal/loop_broken_11.ogg	29032	unreachable from active sound pools and model events
+content/sound/gm_paranormal/metallic_wail_03.ogg	21260	unreachable from active sound pools and model events
+content/sound/gm_paranormal/moodystandsound.wav	862524	unreachable from active sound pools and model events
+content/sound/gm_paranormal/office1lp.wav	89276	unreachable from active sound pools and model events
+content/sound/gm_paranormal/office2lp.wav	195772	unreachable from active sound pools and model events
+content/sound/gm_paranormal/office3lp.wav	101242	unreachable from active sound pools and model events
+content/sound/gm_paranormal/office4lp.wav	57532	unreachable from active sound pools and model events
+content/sound/gm_paranormal/office5lp.wav	174012	unreachable from active sound pools and model events
+content/sound/gm_paranormal/revcry_02.ogg	46044	unreachable from active sound pools and model events
+content/sound/gm_paranormal/scaryalma01sound.wav	1858404	unreachable from active sound pools and model events
+content/sound/gm_paranormal/scream_02brev.wav	467954	unreachable from active sound pools and model events
+content/sound/gm_paranormal/screams_01.wav	502066	unreachable from active sound pools and model events
+content/sound/gm_paranormal/shultz_02.ogg	41683	unreachable from active sound pools and model events
+content/sound/gm_paranormal/shultz_03.ogg	41825	unreachable from active sound pools and model events
+content/sound/gm_paranormal/shultz_04.ogg	24203	unreachable from active sound pools and model events
+content/sound/gm_paranormal/signal2.wav	276936	unreachable from active sound pools and model events
+content/sound/gm_paranormal/signal3.wav	276936	unreachable from active sound pools and model events
+content/sound/gm_paranormal/spec1.wav	151030	unreachable from active sound pools and model events
+content/sound/gm_paranormal/spec2.wav	312886	unreachable from active sound pools and model events
+content/sound/gm_paranormal/spooky_01.wav	670778	unreachable from active sound pools and model events
+content/sound/gm_paranormal/spooky_02.wav	497418	unreachable from active sound pools and model events
+content/sound/gm_paranormal/spooky_03.wav	433750	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_00287.wav	147970	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_00349.wav	147970	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_00485.wav	139626	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_00767.wav	142930	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_00959.wav	140690	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_01104.wav	38770	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_01190.wav	194002	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_01846.wav	54114	unreachable from active sound pools and model events
+content/sound/gm_paranormal/strmpack_02424.wav	82506	unreachable from active sound pools and model events
+content/sound/gm_paranormal/theme1.wav	106106	unreachable from active sound pools and model events
+content/sound/gm_paranormal/theme2.wav	80556	unreachable from active sound pools and model events
+content/sound/gm_paranormal/theme3.wav	53292	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans1.wav	101102	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans2lp.wav	46638	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans3.wav	46586	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans4lp.wav	48190	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans5lp.wav	9660	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans6.wav	379464	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans7.wav	32726	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans8lp.wav	270014	unreachable from active sound pools and model events
+content/sound/gm_paranormal/trans9.wav	111738	unreachable from active sound pools and model events
+content/sound/gm_paranormal/transformation_sigh_01.ogg	37353	unreachable from active sound pools and model events
+content/sound/gm_paranormal/transformation_sigh_02.ogg	40127	unreachable from active sound pools and model events
+content/sound/gm_paranormal/transformation_sigh_03.ogg	36881	unreachable from active sound pools and model events
+content/sound/gm_paranormal/transformation_sigh_04.ogg	41506	unreachable from active sound pools and model events
+content/sound/gm_paranormal/transformation_sigh_05.ogg	51046	unreachable from active sound pools and model events
+content/sound/gm_paranormal/voc_baby_01.ogg	16875	unreachable from active sound pools and model events
+content/sound/gm_paranormal/voc_comehere_01.ogg	19234	unreachable from active sound pools and model events
+content/sound/gm_paranormal/voc_comeonhurry_03.ogg	20220	unreachable from active sound pools and model events
+content/sound/gm_paranormal/voc_followme.ogg	8140	unreachable from active sound pools and model events
+content/sound/gm_paranormal/voc_followme_03.ogg	19499	unreachable from active sound pools and model events
+content/sound/gm_paranormal/voc_overhere.ogg	10497	unreachable from active sound pools and model events
+content/sound/gm_paranormal/weeping01.wav	222330	unreachable from active sound pools and model events
+content/sound/gonarch_intro.wav	692150	unreachable from active sound pools and model events
+content/sound/gonarch_knockdown.wav	759358	unreachable from active sound pools and model events
+content/sound/immersive_custom_flashlight/battery_reload.wav	81980	unreachable from active sound pools and model events
+content/sound/sprintin8.wav	72796	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/large1.wav	365614	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/large2.wav	141520	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/medium1.wav	42616	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/medium2.wav	41734	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/medium3.wav	78014	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/medium4.wav	109548	unreachable from active sound pools and model events
+content/sound/violentimpacts/concrete/medium5.wav	104818	unreachable from active sound pools and model events
+content/materials/effects/lightspill/black_mesa.vmt	67	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/black_mesa.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/blue_led.vmt	65	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/blue_led.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/bonus.vmt	62	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/bonus.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/cheap_flashlight.vmt	73	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/cheap_flashlight.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/circles.vmt	64	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/circles.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/copy.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/copy.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/dreary.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/dreary.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/far.vmt	60	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/far.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/future.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/future.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/g_string.vmt	65	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/g_string.vtf	32992	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/gory.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/gory.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/hard.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/hard.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/high_tech.vmt	66	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/high_tech.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/hl2.vmt	60	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/hl2.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/l4d2.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/l4d2.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/led.vmt	60	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/led.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/mild.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/mild.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/nightmare.vmt	66	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/nightmare.vtf	32992	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/old_and_dirty.vmt	70	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/old_and_dirty.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/oran.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/oran.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/phone.vmt	62	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/phone.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/rare.vmt	61	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/rare.vtf	32992	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/silverlining.vmt	69	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/silverlining.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/smudgy.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/smudgy.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill2.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill2.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill3.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill3.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill4.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill4.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill5.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/spill5.vtf	196832	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/square.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/square.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/unity_like.vmt	67	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/unity_like.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/window.vmt	63	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/effects/lightspill/window.vtf	49376	unused flashlight texture preset; fixed runtime uses actual_flashlight and spill1
+content/materials/foundfootage/async.png	22406	unreferenced legacy branding images
+content/materials/foundfootage/logo-black.png	80274	unreferenced legacy branding images
+content/materials/foundfootage/logo-white.png	56639	unreferenced legacy branding images
+gamemode/vendor/2345988647/EMBEDDED_ASSET_MANIFEST.sha256	102	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/2345988647/PROVENANCE.md	435	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/2707428492/EMBEDDED_ASSET_MANIFEST.sha256	110	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/2707428492/PROVENANCE.md	677	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/2923689956/EMBEDDED_ASSET_MANIFEST.sha256	1308	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/2923689956/PROVENANCE.md	667	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3461074552/PROVENANCE.md	587	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3461074552/UPSTREAM_MANIFEST.sha256	143	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3461074552/upstream/lua/autorun/client/smooth_out_stairs.lua	1951	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3521142957/EMBEDDED_ASSET_MANIFEST.sha256	4589	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3521142957/PROVENANCE.md	1319	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3521142957/UPSTREAM_MANIFEST.sha256	433	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3521142957/upstream/lua/autorun/lima_teleport_effect_autorun.lua	10197	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3521142957/upstream/lua/entities/xen_teleport_intro.lua	19436	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3521142957/upstream/lua/entities/xen_teleport_intro_bonemerge.lua	7250	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3764410031/EMBEDDED_ASSET_MANIFEST.sha256	98	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3764410031/PROVENANCE.md	792	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3764410031/UPSTREAM_MANIFEST.sha256	426	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3764410031/upstream/lua/autorun/client/j_csmlite_shadows_client.lua	10796	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3764410031/upstream/lua/autorun/server/j_csmlite_shadows_server.lua	1275	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3764410031/upstream/materials/j_shadows.vtf	392	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/data_static/betterlights_changelog.json	10231	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/betterlights_00_shared.lua	30888	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_00_core.lua	5570	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_00_policy.lua	7532	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_00_profiles.lua	14484	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_01_runtime.lua	11122	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_02_entities.lua	8516	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_02z_explosions_api.lua	6120	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_03_variants.lua	5739	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_04_projected_textures.lua	5172	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_05_held_weapons.lua	4365	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_06_debug_dynamic_lights.lua	2154	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_ammo_pickups.lua	5380	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_antlion_grub.lua	4734	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_antlion_guardian.lua	2893	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_antlion_spit.lua	5718	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_antlion_worker.lua	1823	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_bullet_impact.lua	2786	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_chargers.lua	3946	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_combine_ball.lua	3308	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_combine_mine.lua	8427	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_combine_soldier.lua	3230	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_crossbow_bolt.lua	1754	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_crossbow_hold.lua	2935	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_cscanner.lua	8885	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_explosions.lua	1751	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_explosions_integrations.lua	1224	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_fire.lua	4851	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_flashlight.lua	29420	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_flashlight_integrations.lua	35727	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_gravitygun.lua	5384	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_grenade.lua	2480	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_heli_bomb.lua	4150	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_hunter.lua	8929	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_hunter_chopper.lua	6635	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_magnusson.lua	4043	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_manhack.lua	2689	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu.lua	91431	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_about.lua	3734	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_changelog.lua	8919	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_developer.lua	2049	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_general.lua	21940	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_gunfire.lua	5829	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_integrations.lua	3228	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_server.lua	18770	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_menu_weapons.lua	9053	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_muzzle_blacklist.lua	9800	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_muzzle_flash.lua	42149	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_muzzle_flash_integrations.lua	31152	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_npc_eye_glow.lua	1296	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_physgun.lua	3487	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_pickups.lua	5862	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_rollermine.lua	6899	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_rpg_hold.lua	1870	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_rpg_missile.lua	3155	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_strider.lua	2673	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_stunstick_impact.lua	1652	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_tfa_projectiles.lua	1187	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_toolgun.lua	2821	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/client/betterlights_world_weapons.lua	7381	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_admin.lua	9458	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_explosions.lua	11242	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_explosions_integrations.lua	2747	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_flashlight.lua	13024	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_flashlight_integrations.lua	12002	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_network.lua	18954	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/autorun/server/betterlights_network_muzzle_integrations.lua	8794	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/lua/weapons/gmod_tool/stools/betterlights_model_lookup.lua	21676	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/resource/localization/en/betterlights.properties	37315	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/sound/betterlights/flashlight_off.wav	27692	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/upstream/sound/betterlights/flashlight_on.wav	25644	unused vendor source/provenance tree; no runtime include
+gamemode/vendor/3597784225/UPSTREAM_MANIFEST.sha256	10714	manifest for removed Better Lights upstream tree

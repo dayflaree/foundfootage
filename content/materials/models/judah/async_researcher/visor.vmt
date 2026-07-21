@@ -1,0 +1,25 @@
+VertexLitGeneric
+{
+	$basetexture "models/judah/async_researcher/suit_visor"
+	$bumpmap "models/judah/async_researcher/suit_visor_normal"
+	$surfaceprop Metal
+	$translucent 1
+
+
+	$envmap "env_cubemap"
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[0.1 0.1 0.1]"
+	$envmapfresnel 0.34
+	$envmaplightscale 1
+	$envmaplightscaleminmax "[0 1]"
+	$envmapanisotropy 1
+	$envmapanisotropyscale 0.05
+
+	$phong 1
+	$phongexponenttexture "models/judah/async_researcher/suit_phong"
+	$phongfresnelranges "[0.05 0.5 3]"
+	$phongboost 4
+
+	//$ambientoccltexture "[your ambient occlusion here]"
+	$ambientocclusion 1
+}

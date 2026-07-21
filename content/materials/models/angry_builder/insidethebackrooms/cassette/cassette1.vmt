@@ -1,0 +1,27 @@
+"VertexlitGeneric"
+{
+	"$baseTexture" "models/angry_builder/insidethebackrooms/cassette/cassette1"
+	"$bumpmap" "models/angry_builder/insidethebackrooms/cassette/cassette1_n"
+	"$Phongexponenttexture" "models/angry_builder/insidethebackrooms/cassette/cassette1_s"
+	"$Nocull" "1"
+
+"$ambientocclusion" 0
+    "$alphatest" "1" //enables translucency (we dont use $translucent because of z-fighting and shadows don't work with non-binary alphas)
+            
+
+	
+	"$halflambert"			"1"
+	"$envmaptint"			"[0.0 0.0 0.2]"
+	"$phong"				"1"
+	"$phongexponent"		"5"
+	"$phongboost"			"1" // R:0 G:0 B:64 A:51
+	"$phongfresnelranges"	"[.1 .1 .33]"
+	"$rimlight"				"0"
+	"$rimlightexponent"		"2"
+	"$rimlightboost"		"2"
+	"$envmapfresnel" "1"	
+}
+
+
+
+

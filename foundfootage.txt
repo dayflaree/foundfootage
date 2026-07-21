@@ -1,0 +1,7 @@
+"foundfootage"
+{
+    "base"      "sandbox"
+    "title"     "Found Footage"
+    "category"  "Other"
+    "menusystem" "1"
+}

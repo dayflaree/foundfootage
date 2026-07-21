@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+    "$basetexture" "models/props_backrooms/caprice_low_Material_u1_v1_Base_Color"
+    "$bumpmap" "models/props_backrooms/caprice_low_Material_u1_v1_Normal_OpenGL"
+    "$model" "1"
+    "$surfaceprop" "metal"
+}

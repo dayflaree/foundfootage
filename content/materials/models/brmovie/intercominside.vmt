@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/brmovie/intercominside"
+	$bumpmap "models/brmovie/intercominside_norm"
+}

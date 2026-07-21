@@ -1,0 +1,9 @@
+workshop_id	title	archive_sha256	selection
+3138563659	Leaning	819359bd032aff779eccf97bb10b64d9f148e3d7e96a706d0cda5dd91e1ffd80	adapted collision-safe leaning runtime; upstream view ownership and menu omitted
+3727438572	Cloth Foley SFX For Leaning	2618b033c95603ac574e71d9925ebe85d53e2e25c6ca95a0a04615d543cbe763	all 28 foley sounds; runtime adapted into leaning system
+2831343055	Backrooms 2K Prop Pack	02be6a11fff5d5ca4de8557aac6764b00f82cbd25ef7ebd7bd455b0668809250	almond water, can variants, and royal ration; Fire Salt excluded
+2844282151	Inside the Backrooms Models	3336e202fca9309ec9b0401a2d0e03ebc2b0fa65afef50f830aec50027b12ec0	cassette tape model and cassette materials only
+3766105000	Backrooms Found Footage 2 Car	37752892bc9d3cdfb1cbb6b714f6c334b4ee73458bba88e312665c1f8d66135a	destroyed car model and required materials
+3748029892	Movie Accurate Caveman Cutout	b2a8caebb428a7b1c129f045edd7a0d66f07001921553b4412a16615ba5d8cd8	main caveman_brmovie model and only its required materials
+3743234295	Caveman Cut-out Entity	0b71e920a9dfb46bcd33b08f922f9d23202ce3fb942950dfd6c441ee881bef94	entity behavior and greeting sound; old model and materials excluded
+2844439442	Simple First-Person Player Shadow	c4f39107c707de25412ebeea952eceff2c0cfac983b694a339a376be8c4aa6ef	adapted six-line cl_drawownshadow behavior into forced client module and central convar lock; public cl_playershadow convar omitted
