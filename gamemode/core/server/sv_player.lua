@@ -3,18 +3,29 @@ local restrictions = FF_CONFIG.Restrictions
 local playerConfig = FF_CONFIG.Player
 local staminaConfig = movement.Stamina or {}
 local spawnIntroConfig = playerConfig.SpawnIntro or {}
+local deathSequenceConfig = playerConfig.DeathSequence or {}
 
 local STAMINA_NETWORK_KEY = "FF_Stamina"
 local STAMINA_EXHAUSTED_NETWORK_KEY = "FF_StaminaExhausted"
 local VHS_STARTUP_NETWORK_MESSAGE = "FF_VHSStartup"
 local VHS_STARTUP_READY_NETWORK_MESSAGE = "FF_VHSStartupReady"
 local VHS_STARTUP_COMPLETE_NETWORK_MESSAGE = "FF_VHSStartupComplete"
+local VHS_STARTUP_FINISH_NETWORK_MESSAGE = "FF_VHSStartupFinish"
+local DEATH_SEQUENCE_START_NETWORK_MESSAGE = "FF_DeathSequenceStart"
+local DEATH_AUDIO_COMPLETE_NETWORK_MESSAGE = "FF_DeathAudioComplete"
+local DEATH_END_CARD_NETWORK_MESSAGE = "FF_DeathEndCard"
+local DEATH_SEQUENCE_FINISH_NETWORK_MESSAGE = "FF_DeathSequenceFinish"
 local staminaEnabled = movement.SprintEnabled and staminaConfig.Enabled ~= false
 local staminaStates = setmetatable({}, { __mode = "k" })
 
 util.AddNetworkString(VHS_STARTUP_NETWORK_MESSAGE)
 util.AddNetworkString(VHS_STARTUP_READY_NETWORK_MESSAGE)
 util.AddNetworkString(VHS_STARTUP_COMPLETE_NETWORK_MESSAGE)
+util.AddNetworkString(VHS_STARTUP_FINISH_NETWORK_MESSAGE)
+util.AddNetworkString(DEATH_SEQUENCE_START_NETWORK_MESSAGE)
+util.AddNetworkString(DEATH_AUDIO_COMPLETE_NETWORK_MESSAGE)
+util.AddNetworkString(DEATH_END_CARD_NETWORK_MESSAGE)
+util.AddNetworkString(DEATH_SEQUENCE_FINISH_NETWORK_MESSAGE)
 
 local function maximumStamina()
     return math.max(tonumber(staminaConfig.Maximum) or 100, 1)
@@ -120,8 +131,10 @@ local function applyPlayerSettings(ply)
 
     applyMovementSettings(ply)
     ply:AllowFlashlight(movement.FlashlightEnabled)
-    ply:StripWeapons()
-    ply:StripAmmo()
+    if restrictions.Weapons == false then
+        ply:StripWeapons()
+        ply:StripAmmo()
+    end
     applyPlayerModel(ply)
     applyStableViewOffsets(ply)
 end
@@ -146,7 +159,7 @@ local function spawnIntroDuration()
     local totalDuration = math.max(tonumber(spawnIntroConfig.InitialBlackDuration) or 1.5, 0)
         + math.max(tonumber(spawnIntroConfig.BlueDuration) or 1.5, 0)
         + math.max(tonumber(spawnIntroConfig.FinalBlackDuration) or 1, 0)
-    local spawnBeforeEnd = math.max(tonumber(spawnIntroConfig.SpawnBeforeEnd) or 0.5, 0)
+    local spawnBeforeEnd = math.max(tonumber(spawnIntroConfig.SpawnBeforeEnd) or 0, 0)
 
     return math.max(totalDuration - spawnBeforeEnd, 0)
 end
@@ -204,6 +217,103 @@ local function restorePlayerControl(ply)
     ply:SetLocalVelocity(vector_origin)
 end
 
+local function deathAudioMinimumDuration()
+    return math.max(tonumber(deathSequenceConfig.AudioMinimumDuration) or 4.878662, 0)
+end
+
+local function deathEndCardDuration()
+    return math.max(tonumber(deathSequenceConfig.EndCardDuration) or 5, 0)
+end
+
+
+local function deathSequenceMatches(ply, token)
+    return IsValid(ply)
+        and ply.FF_DeathSequencePending
+        and ply.FF_DeathSequenceToken == token
+end
+
+local function sendDeathSequenceFinish(ply, token)
+    if not IsValid(ply) then return end
+
+    net.Start(DEATH_SEQUENCE_FINISH_NETWORK_MESSAGE)
+    net.WriteUInt(token, 16)
+    net.Send(ply)
+end
+
+local function clearDeathSequenceState(ply)
+    if not IsValid(ply) then return end
+
+    ply.FF_DeathSequencePending = false
+    ply.FF_DeathEndCardStarted = false
+    ply.FF_DeathAudioEarliestCompletion = nil
+end
+
+local beginDeathEndCard
+beginDeathEndCard = function(ply, token)
+    if not deathSequenceMatches(ply, token) or ply.FF_DeathEndCardStarted then return end
+
+    local earliestCompletion = tonumber(ply.FF_DeathAudioEarliestCompletion)
+    if not earliestCompletion then return end
+
+    local remainingAudio = earliestCompletion - CurTime()
+    if remainingAudio > 0 then
+        timer.Simple(remainingAudio, function()
+            beginDeathEndCard(ply, token)
+        end)
+        return
+    end
+
+    ply.FF_DeathEndCardStarted = true
+
+    local endCardDuration = deathEndCardDuration()
+    net.Start(DEATH_END_CARD_NETWORK_MESSAGE)
+    net.WriteUInt(token, 16)
+    net.WriteFloat(endCardDuration)
+    net.Send(ply)
+
+    timer.Simple(endCardDuration, function()
+        if not deathSequenceMatches(ply, token) then return end
+
+        clearDeathSequenceState(ply)
+
+        ply:StripWeapons()
+        ply:Spectate(OBS_MODE_FIXED)
+
+        if not queueSpawnIntro(ply) then
+            sendDeathSequenceFinish(ply, token)
+            ply.FF_IntroAuthorized = true
+            ply:UnSpectate()
+            ply:Spawn()
+            restorePlayerControl(ply)
+        end
+    end)
+end
+
+local function startDeathSequence(ply)
+    if deathSequenceConfig.Enabled == false or not IsValid(ply) or ply:IsBot() then
+        return false
+    end
+
+    ply.FF_DeathSequenceToken = ((tonumber(ply.FF_DeathSequenceToken) or 0) % 65535) + 1
+    ply.FF_DeathSequencePending = true
+    ply.FF_DeathEndCardStarted = false
+    ply.FF_DeathAudioEarliestCompletion = CurTime() + deathAudioMinimumDuration()
+
+    local token = ply.FF_DeathSequenceToken
+
+    net.Start(DEATH_SEQUENCE_START_NETWORK_MESSAGE)
+    net.WriteUInt(token, 16)
+    net.Send(ply)
+
+    local fallbackDelay = deathAudioMinimumDuration()
+        + math.max(tonumber(deathSequenceConfig.AudioLoadGrace) or 1, 0)
+    timer.Simple(fallbackDelay, function()
+        beginDeathEndCard(ply, token)
+    end)
+
+    return true
+end
+
 local function completeSpawnIntro(ply, token)
     if not IsValid(ply)
         or not ply.FF_IntroPending
@@ -242,6 +352,10 @@ local function completeSpawnIntro(ply, token)
 
         ply.FF_SuppressSpawnAnimation = nil
         restorePlayerControl(ply)
+
+        net.Start(VHS_STARTUP_FINISH_NETWORK_MESSAGE)
+        net.WriteUInt(token, 16)
+        net.Send(ply)
     end)
 end
 
@@ -273,6 +387,14 @@ net.Receive(VHS_STARTUP_COMPLETE_NETWORK_MESSAGE, function(_, ply)
     completeSpawnIntro(ply, net.ReadUInt(16))
 end)
 
+net.Receive(DEATH_AUDIO_COMPLETE_NETWORK_MESSAGE, function(_, ply)
+    beginDeathEndCard(ply, net.ReadUInt(16))
+end)
+
+hook.Add("PlayerDeath", "FF_StartDeathSequence", function(ply)
+    startDeathSequence(ply)
+end)
+
 function GM:PlayerSpawn(ply, transition)
     if transition then
         ply.FF_IntroPending = false
@@ -291,7 +413,7 @@ function GM:PlayerSpawn(ply, transition)
 end
 
 function GM:PlayerDeathThink(ply)
-    if ply.FF_IntroPending then return end
+    if ply.FF_DeathSequencePending or ply.FF_IntroPending then return end
 
     local canRespawn = not ply.NextSpawnTime or ply.NextSpawnTime <= CurTime()
     local requestedRespawn = ply:IsBot()
@@ -453,17 +575,22 @@ if not movement.FlashlightEnabled then
     end)
 end
 
-hook.Add("PlayerCanPickupWeapon", "FF_DisableWeaponPickup", function()
-    return false
-end)
+hook.Remove("PlayerCanPickupWeapon", "FF_DisableWeaponPickup")
+hook.Remove("WeaponEquip", "FF_RemoveEquippedWeapon")
 
-hook.Add("WeaponEquip", "FF_RemoveEquippedWeapon", function(weapon)
-    timer.Simple(0, function()
-        if IsValid(weapon) then
-            weapon:Remove()
-        end
+if restrictions.Weapons == false then
+    hook.Add("PlayerCanPickupWeapon", "FF_DisableWeaponPickup", function()
+        return false
     end)
-end)
+
+    hook.Add("WeaponEquip", "FF_RemoveEquippedWeapon", function(weapon)
+        timer.Simple(0, function()
+            if IsValid(weapon) then
+                weapon:Remove()
+            end
+        end)
+    end)
+end
 
 local function deny()
     return false
@@ -481,12 +608,27 @@ if not restrictions.Noclip then
     hook.Add("PlayerNoClip", "FF_DisableNoclip", deny)
 end
 
+hook.Remove("AllowPlayerPickup", "FF_DisablePlayerPickup")
+hook.Remove("PhysgunPickup", "FF_DisablePhysgun")
+hook.Remove("GravGunPickupAllowed", "FF_DisableGravGunPickup")
+hook.Remove("GravGunPunt", "FF_DisableGravGunPunt")
+
 if not restrictions.PlayerPickup then
     hook.Add("AllowPlayerPickup", "FF_DisablePlayerPickup", deny)
     hook.Add("PhysgunPickup", "FF_DisablePhysgun", deny)
     hook.Add("GravGunPickupAllowed", "FF_DisableGravGunPickup", deny)
     hook.Add("GravGunPunt", "FF_DisableGravGunPunt", deny)
 end
+
+hook.Remove("CanTool", "FF_DisableToolgun")
+hook.Remove("PlayerGiveSWEP", "FF_DisableGiveSWEP")
+hook.Remove("PlayerSpawnSWEP", "FF_DisableSpawnSWEP")
+hook.Remove("PlayerSpawnProp", "FF_DisableSpawnProp")
+hook.Remove("PlayerSpawnRagdoll", "FF_DisableSpawnRagdoll")
+hook.Remove("PlayerSpawnEffect", "FF_DisableSpawnEffect")
+hook.Remove("PlayerSpawnNPC", "FF_DisableSpawnNPC")
+hook.Remove("PlayerSpawnSENT", "FF_DisableSpawnSENT")
+hook.Remove("PlayerSpawnVehicle", "FF_DisableSpawnVehicle")
 
 if not restrictions.SandboxTools then
     hook.Add("CanTool", "FF_DisableToolgun", deny)

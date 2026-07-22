@@ -2,6 +2,7 @@ local config = FF_CONFIG.Player.SpawnIntro or {}
 local NETWORK_MESSAGE = "FF_VHSStartup"
 local READY_NETWORK_MESSAGE = "FF_VHSStartupReady"
 local COMPLETE_NETWORK_MESSAGE = "FF_VHSStartupComplete"
+local FINISH_NETWORK_MESSAGE = "FF_VHSStartupFinish"
 
 local introStartedAt = nil
 local introToken = nil
@@ -45,7 +46,7 @@ local function totalSequenceDuration()
 end
 
 local function spawnCompletionTime()
-    local spawnBeforeEnd = nonNegative(config.SpawnBeforeEnd, 0.5)
+    local spawnBeforeEnd = nonNegative(config.SpawnBeforeEnd, 0)
     return math.max(totalSequenceDuration() - spawnBeforeEnd, 0)
 end
 
@@ -79,9 +80,9 @@ local function sendCompletion()
 end
 
 local function finishIntro()
-    if not introStartedAt then return end
-
     introStartedAt = nil
+    introToken = nil
+    completionSent = false
     stopIntroSound()
 end
 
@@ -95,6 +96,7 @@ local function startIntro()
     end
 
     introStartedAt = RealTime()
+    hook.Run("FF_VHSStartupBegan")
     playIntroSound()
 end
 
@@ -147,7 +149,11 @@ hook.Add("FF_DrawVHSFrameOverlay", "FF_VHSStartupSequence", function(width, heig
     local elapsed = RealTime() - introStartedAt
     local totalDuration = initialBlack + blueDuration + finalBlack
 
-    if elapsed >= totalDuration then return end
+    if elapsed >= totalDuration then
+        surface.SetDrawColor(0, 0, 0, 255)
+        surface.DrawRect(0, 0, width, height)
+        return
+    end
 
     if elapsed < initialBlack then
         surface.SetDrawColor(0, 0, 0, 255)
@@ -172,8 +178,6 @@ hook.Add("Think", "FF_FinishVHSStartupSequence", function()
         sendCompletion()
     end
 
-    if elapsed < totalSequenceDuration() then return end
-    finishIntro()
 end)
 
 local function signalReady()
@@ -185,5 +189,12 @@ hook.Add("InitPostEntity", "FF_VHSStartupClientReady", signalReady)
 hook.Add("OnReloaded", "FF_VHSStartupClientReloaded", signalReady)
 
 net.Receive(NETWORK_MESSAGE, startIntro)
+
+net.Receive(FINISH_NETWORK_MESSAGE, function()
+    local token = net.ReadUInt(16)
+    if not introToken or token ~= introToken then return end
+
+    finishIntro()
+end)
 
 hook.Add("ShutDown", "FF_StopVHSStartupSound", stopIntroSound)

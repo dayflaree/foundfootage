@@ -64,6 +64,9 @@ if not restrictions.DefaultHUD then
     end)
 end
 
+hook.Remove("SpawnMenuOpen", "FF_BlockSpawnMenu")
+hook.Remove("OnSpawnMenuOpen", "FF_CloseSpawnMenu")
+
 if not restrictions.SpawnMenu then
     hook.Add("SpawnMenuOpen", "FF_BlockSpawnMenu", function()
         return false
@@ -75,6 +78,9 @@ if not restrictions.SpawnMenu then
         end
     end)
 end
+
+hook.Remove("ContextMenuOpen", "FF_BlockContextMenu")
+hook.Remove("OnContextMenuOpen", "FF_CloseContextMenu")
 
 if not restrictions.ContextMenu then
     hook.Add("ContextMenuOpen", "FF_BlockContextMenu", function()
@@ -89,13 +95,19 @@ if not restrictions.ContextMenu then
 end
 
 local blockedBinds = {
-    ["+menu"] = true,
-    ["+menu_context"] = true,
     ["gm_showhelp"] = true,
     ["gm_showteam"] = true,
     ["gm_showspare1"] = true,
     ["gm_showspare2"] = true,
 }
+
+if restrictions.SpawnMenu == false then
+    blockedBinds["+menu"] = true
+end
+
+if restrictions.ContextMenu == false then
+    blockedBinds["+menu_context"] = true
+end
 
 if restrictions.Scoreboard == false then
     blockedBinds["+showscores"] = true
