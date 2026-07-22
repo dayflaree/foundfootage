@@ -47,7 +47,12 @@ hook.Add("EntityEmitSound", "FF_ForcedSoundMuffling", function(soundData)
 
     local forwardTrace = traceOcclusion(listenerPosition, origin, filter)
     local reverseTrace = traceOcclusion(origin, listenerPosition, filter)
-    local occluded = forwardTrace.Hit and reverseTrace.Hit
+    if not istable(forwardTrace) or not istable(reverseTrace) then return end
+
+    local occluded = forwardTrace.Hit == true
+        and reverseTrace.Hit == true
+        and isvector(forwardTrace.HitPos)
+        and isvector(reverseTrace.HitPos)
     local dsp = soundData.DSP or 0
 
     if occluded then
