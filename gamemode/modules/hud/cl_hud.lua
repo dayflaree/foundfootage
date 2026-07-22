@@ -726,6 +726,7 @@ end
 local function drawFoundFootageHUD(canvasWidth, canvasHeight)
     if hudConfig.Enabled == false then return end
     if FF_IsVHSPauseMenuOpen and FF_IsVHSPauseMenuOpen() then return end
+    if FF_IsMapMessageComposerOpen and FF_IsMapMessageComposerOpen() then return end
 
     local ply = LocalPlayer()
     if not IsValid(ply) then return end

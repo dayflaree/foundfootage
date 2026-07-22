@@ -1,3 +1,6 @@
+-- Found Footage suppresses bundled debug-only console output.
+local MsgC = FF_DiscardOutput
+
 if CLIENT then
 
     local BL = BetterLights

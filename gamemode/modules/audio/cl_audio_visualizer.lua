@@ -38,8 +38,14 @@ end
 local function isExcludedVisualizerPath(path)
     local normalized = normalizedPath(path)
     if normalized == "" then return false end
+    if string.sub(normalized, 1, 6) == "sound/" then
+        normalized = string.sub(normalized, 7)
+    end
 
     return string.find(normalized, "threateffects/", 1, true) ~= nil
+        or string.sub(normalized, 1, 7) == "vhs_ui/"
+        or string.sub(normalized, 1, 3) == "ui/"
+        or string.sub(normalized, 1, 13) == "garrysmod/ui_"
 end
 
 local function ambientNoiseFloor(now)
@@ -329,13 +335,7 @@ function FF_ClearAudioVisualizerSoundSource(sourceId)
     continuousSources[sourceId] = nil
 end
 
-function FF_PlaySurfaceSound(soundName, volume, soundLevel, duration)
-    surface.PlaySound(soundName)
-
-    if not directSoundFileExists(soundName) then
-        return false, 0
-    end
-
+local function resolvedSoundDuration(soundName, duration, pitch)
     local resolvedDuration = tonumber(duration)
     if not resolvedDuration or resolvedDuration <= 0 then
         local succeeded, measured = pcall(SoundDuration, soundName)
@@ -345,19 +345,53 @@ function FF_PlaySurfaceSound(soundName, volume, soundLevel, duration)
     end
 
     if not resolvedDuration or resolvedDuration <= 0 then
+        return 0
+    end
+
+    pitch = math.Clamp(tonumber(pitch) or 100, 1, 255)
+    return resolvedDuration * (100 / pitch)
+end
+
+function FF_PlaySurfaceSound(soundName, volume, soundLevel, duration, affectVisualizer)
+    surface.PlaySound(soundName)
+
+    if not directSoundFileExists(soundName) then
         return false, 0
     end
 
-    FF_PushAudioVisualizerSound(
-        soundName,
-        volume or 1,
-        soundLevel or 75,
-        nil,
-        nil,
-        resolvedDuration
-    )
+    local resolvedDuration = resolvedSoundDuration(soundName, duration, 100)
+    if affectVisualizer == true and resolvedDuration > 0 then
+        FF_PushAudioVisualizerSound(
+            soundName,
+            volume or 1,
+            soundLevel or 75,
+            nil,
+            nil,
+            resolvedDuration
+        )
+    end
 
     return true, resolvedDuration
+end
+
+function FF_PlayPlayerSound(soundName, volume, soundLevel, pitch, channel, soundFlags, dsp)
+    local ply = LocalPlayer()
+    if not IsValid(ply) or not directSoundFileExists(soundName) then
+        return false, 0
+    end
+
+    volume = math.Clamp(tonumber(volume) or 1, 0, 1)
+    soundLevel = math.Clamp(math.floor(tonumber(soundLevel) or 75), 0, 511)
+    pitch = math.Clamp(math.floor(tonumber(pitch) or 100), 1, 255)
+    channel = tonumber(channel) or CHAN_ITEM
+    soundFlags = tonumber(soundFlags) or 0
+    if dsp == nil then dsp = 1 end
+
+    ply:EmitSound(soundName, soundLevel, pitch, volume, channel, soundFlags, dsp)
+
+    -- EntityEmitSound captures this for the visualizer. Keeping the helper free
+    -- of manual pushes avoids duplicate impulses while preserving entity DSP.
+    return true, resolvedSoundDuration(soundName, nil, pitch)
 end
 
 net.Receive("FF_AudioVisualizerSound", function()

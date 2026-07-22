@@ -299,6 +299,9 @@ function FF_IsVHSPauseMenuOpen()
 end
 
 hook.Add("OnPauseMenuShow", "FF_VHSCustomPauseMenu", function()
+    if FF_ConsumeMapMessagePauseRequest and FF_ConsumeMapMessagePauseRequest() then
+        return false
+    end
     if config.Enabled == false then return end
 
     local current = RealTime()
@@ -312,6 +315,11 @@ hook.Add("OnPauseMenuShow", "FF_VHSCustomPauseMenu", function()
 end)
 
 hook.Add("OnGameUIVisible", "FF_VHSCustomPauseMenuNativeVisible", function()
+    if FF_ConsumeMapMessagePauseRequest and FF_ConsumeMapMessagePauseRequest() then
+        gui.HideGameUI()
+        return
+    end
+
     if IsValid(pauseMenu) and not pauseMenu.endingRecording then
         closePauseMenu()
     end

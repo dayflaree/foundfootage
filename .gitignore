@@ -1,0 +1,18 @@
+# Credentials and local configuration
+**/.admin-token
+**/.env
+**/.dev.vars
+
+# JavaScript/Cloudflare build state
+**/node_modules/
+**/.wrangler/
+
+# Python caches
+**/__pycache__/
+**/*.py[cod]
+
+# Runtime logs and editor files
+**/*.log
+.DS_Store
+*.swp
+*.swo

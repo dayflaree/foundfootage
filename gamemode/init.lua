@@ -13,6 +13,8 @@ local clientFiles = {
     "modules/visual/cl_csm_lite.lua",
     "modules/hud/cl_hud.lua",
     "modules/hud/cl_pause_menu.lua",
+    "modules/map_messages/sh_map_messages.lua",
+    "modules/map_messages/cl_map_messages.lua",
     "modules/camera/cl_camera.lua",
 
     "modules/effects/cl_effects.lua",
@@ -78,5 +80,7 @@ include("modules/horror/sv_caveman_spawner.lua")
 include("modules/camera/sv_death_camera.lua")
 include("modules/visual/sv_shadows.lua")
 include("modules/visual/sv_csm_lite.lua")
+include("modules/map_messages/sh_map_messages.lua")
+include("modules/map_messages/sv_map_messages.lua")
 
 include("core/server/sv_configuration.lua")

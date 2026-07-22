@@ -920,6 +920,26 @@ FF_CONFIG = {
 
     },
 
+    MapMessages = {
+        Enabled = true,
+
+        -- Set this to the deployed Cloudflare Worker URL, with no trailing slash.
+        -- Example: https://foundfootage-messages.example.workers.dev
+        APIBaseURL = "https://foundfootage-messages.foundfootage-elijah.workers.dev",
+
+        PollInterval = 60,
+        SnapshotChunkSize = 20,
+        PlacementDistance = 220,
+        MaximumLength = 100,
+
+        CassetteModel = "models/angry_builder/insidethebackrooms/cassette.mdl",
+        CassetteScale = 1,
+        InteractionDistance = 150,
+
+        TypewriterCharactersPerSecond = 28,
+        ReadingAutoCloseDistance = 360,
+    },
+
     LockedServerConVars = {
         mp_falldamage = "1",
         sv_icf_multiplayer_visibility = "1",

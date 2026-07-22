@@ -8,8 +8,16 @@ local function normalizedPath(path)
     return string.lower(string.gsub(tostring(path or ""), "\\", "/"))
 end
 
-local function isThreatEffectsPath(path)
-    return string.find(normalizedPath(path), "threateffects/", 1, true) ~= nil
+local function isExcludedVisualizerPath(path)
+    local normalized = normalizedPath(path)
+    if string.sub(normalized, 1, 6) == "sound/" then
+        normalized = string.sub(normalized, 7)
+    end
+
+    return string.find(normalized, "threateffects/", 1, true) ~= nil
+        or string.sub(normalized, 1, 7) == "vhs_ui/"
+        or string.sub(normalized, 1, 3) == "ui/"
+        or string.sub(normalized, 1, 13) == "garrysmod/ui_"
 end
 
 local function soundOrigin(soundData)
@@ -25,7 +33,7 @@ end
 
 hook.Add("EntityEmitSound", "FF_AudioVisualizerForwardServerSound", function(soundData)
     local soundName = normalizedPath(soundData.OriginalSoundName or soundData.SoundName)
-    if soundName == "" or isThreatEffectsPath(soundName) then return end
+    if soundName == "" or isExcludedVisualizerPath(soundName) then return end
 
     pendingEvents[#pendingEvents + 1] = {
         soundName = soundName,

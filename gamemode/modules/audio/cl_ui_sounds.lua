@@ -34,18 +34,49 @@ function FF_GetUISound(name)
     return entry.path, entry.duration
 end
 
+local function normalizedSoundPath(path)
+    path = string.lower(string.Trim(tostring(path or "")))
+    if string.sub(path, 1, 6) == "sound/" then
+        path = string.sub(path, 7)
+    end
+    return path
+end
+
+function FF_IsDermaSoundPath(path)
+    local normalized = normalizedSoundPath(path)
+    return string.sub(normalized, 1, 7) == "vhs_ui/"
+        or string.sub(normalized, 1, 3) == "ui/"
+        or string.sub(normalized, 1, 13) == "garrysmod/ui_"
+end
+
 function FF_PlayUISound(name, volume, soundLevel)
     local path, duration = FF_GetUISound(name)
-    if not path or not FF_PlaySurfaceSound then
+    if not path or not FF_PlayPlayerSound then
         return false, 0, path
     end
 
-    local played, actualDuration = FF_PlaySurfaceSound(
+    local played, actualDuration = FF_PlayPlayerSound(
         path,
         volume or 1,
         soundLevel or 75,
-        duration
+        100,
+        CHAN_AUTO,
+        0,
+        1
     )
 
-    return played, actualDuration or 0, path
+    return played, duration or actualDuration or 0, path
+end
+
+-- Stock Derma controls call surface.PlaySound directly. Route only recognized
+-- UI paths through the same local-player entity path so the forced VHS DSP is
+-- applied. Other surface sounds retain the engine's original behavior.
+FF_OriginalSurfacePlaySound = FF_OriginalSurfacePlaySound or surface.PlaySound
+surface.PlaySound = function(soundName)
+    if FF_IsDermaSoundPath(soundName) and FF_PlayPlayerSound then
+        local played = FF_PlayPlayerSound(soundName, 1, 75, 100, CHAN_AUTO, 0, 1)
+        if played then return end
+    end
+
+    return FF_OriginalSurfacePlaySound(soundName)
 end

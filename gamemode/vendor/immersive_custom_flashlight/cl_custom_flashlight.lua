@@ -548,7 +548,7 @@ local function ICF_AddSpareBatteries(amount)
     ICF_SetSpareBatteryCount(after)
 
     if after > before then
-        FF_PlaySurfaceSound("items/battery_pickup.wav")
+        FF_PlayPlayerSound("items/battery_pickup.wav", 1, 55, 100, CHAN_ITEM)
     elseif FF_PlayUISound then
         FF_PlayUISound("error")
     end
@@ -630,7 +630,13 @@ local function ICF_StartBatteryReload()
         ICF_SafeDestroyLight()
     end
 
-    FF_PlaySurfaceSound(SafeConVarString("cflash_battery_reload_sound", "immersive_custom_flashlight/battery_reload.wav"))
+    FF_PlayPlayerSound(
+        SafeConVarString("cflash_battery_reload_sound", "immersive_custom_flashlight/battery_reload.wav"),
+        1,
+        60,
+        100,
+        CHAN_ITEM
+    )
 
     return true
 end
@@ -2021,8 +2027,12 @@ end
 
 PlayToggleSound = function()
     if SafeConVarBool("cflash_play_sound", true) then
-        FF_PlaySurfaceSound(
-            tostring(flashlightConfig.ToggleSoundPath or "foundfootage/flashlight_toggle.wav")
+        FF_PlayPlayerSound(
+            tostring(flashlightConfig.ToggleSoundPath or "foundfootage/flashlight_toggle.wav"),
+            1,
+            55,
+            100,
+            CHAN_ITEM
         )
     end
 end
@@ -2139,7 +2149,7 @@ local function ICF_SuppressNativeStockFlashlight(force)
 
     if SafeConVarBool("cflash_stock_beam_guard_debug", false) and now >= (lastStockBeamGuardPrint or 0) then
         lastStockBeamGuardPrint = now + 0.75
-        print("[ICFL] Stock flashlight guard tripped #" .. tostring(stockBeamGuardTrips) .. " - native GMod/VManip beam was on while ICFL stock blocking was active. Turning it back off.")
+        FF_DiscardOutput("[ICFL] Stock flashlight guard tripped #" .. tostring(stockBeamGuardTrips) .. " - native GMod/VManip beam was on while ICFL stock blocking was active. Turning it back off.")
     end
 
     lastNativeStockImpulse = now + 0.12
@@ -2149,19 +2159,19 @@ end
 
 concommand.Add("cflash_stock_beam_guard_status", function()
     local ply = LocalPlayer()
-    print("----- ICFL Stock Beam Guard Status -----")
-    print("ICFL enabled = " .. tostring(SafeConVarBool("cflash_enabled", true)))
-    print("Stock flashlight force-blocked while ICFL enabled = " .. tostring(ICF_ShouldForceStockFlashlightOff()))
-    print("VManip compatibility = " .. tostring(SafeConVarBool("cflash_vmanip_compat", false)))
-    print("Strict VManip hook guard = " .. tostring(SafeConVarBool("cflash_vmanip_strict_hook_guard", true)))
-    print("Debug prints = " .. tostring(SafeConVarBool("cflash_stock_beam_guard_debug", false)))
-    print("Guard trip count = " .. tostring(stockBeamGuardTrips or 0))
+    FF_DiscardOutput("----- ICFL Stock Beam Guard Status -----")
+    FF_DiscardOutput("ICFL enabled = " .. tostring(SafeConVarBool("cflash_enabled", true)))
+    FF_DiscardOutput("Stock flashlight force-blocked while ICFL enabled = " .. tostring(ICF_ShouldForceStockFlashlightOff()))
+    FF_DiscardOutput("VManip compatibility = " .. tostring(SafeConVarBool("cflash_vmanip_compat", false)))
+    FF_DiscardOutput("Strict VManip hook guard = " .. tostring(SafeConVarBool("cflash_vmanip_strict_hook_guard", true)))
+    FF_DiscardOutput("Debug prints = " .. tostring(SafeConVarBool("cflash_stock_beam_guard_debug", false)))
+    FF_DiscardOutput("Guard trip count = " .. tostring(stockBeamGuardTrips or 0))
     if IsValid(ply) and ply.FlashlightIsOn then
-        print("Native flashlight currently on = " .. tostring(ply:FlashlightIsOn()))
+        FF_DiscardOutput("Native flashlight currently on = " .. tostring(ply:FlashlightIsOn()))
     else
-        print("Native flashlight currently on = unknown")
+        FF_DiscardOutput("Native flashlight currently on = unknown")
     end
-    print("----------------------------------------")
+    FF_DiscardOutput("----------------------------------------")
 end)
 
 hook.Add("PlayerBindPress", "CustomFlashlight_BlockStock", function(_, bind, pressed)
@@ -3016,7 +3026,7 @@ local function ICF_MP_SendLocalState(active, ang, force, beamPos)
     if not ok then
         if now > ICF_MP_LastNetFailNotice then
             ICF_MP_LastNetFailNotice = now + 10
-            print("[ICF] Experimental multiplayer visibility could not network. The server probably does not have the addon installed.")
+            FF_DiscardOutput("[ICF] Experimental multiplayer visibility could not network. The server probably does not have the addon installed.")
         end
 
         return
@@ -3395,20 +3405,20 @@ hook.Add("ShutDown", "ICF_MultiplayerCleanup", function()
 end)
 
 concommand.Add("cflash_multiplayer_status", function()
-    print("----- ICFL Multiplayer Visibility Status -----")
-    print("local visibility send enabled =", SafeConVarBool("cflash_multiplayer_visibility", false))
-    print("show other players =", SafeConVarBool("cflash_multiplayer_show_others", true))
-    print("remote Lightspill enabled =", SafeConVarBool("cflash_multiplayer_remote_lightspill", false))
-    print("remote beam textures enabled =", SafeConVarBool("cflash_multiplayer_remote_textures", true))
-    print("remote cosmetic emitter glow =", SafeConVarBool("cflash_multiplayer_remote_emitter_glow", true))
-    print("remote emitter offset f/r/u =", SafeConVarFloat("cflash_multiplayer_emitter_forward", 8), SafeConVarFloat("cflash_multiplayer_emitter_right", 0), SafeConVarFloat("cflash_multiplayer_emitter_up", 0))
-    print("network string ICF_MP_State =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State") or "unknown")
-    print("network string ICF_MP_State2 =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State2") or "unknown")
-    print("network string ICF_MP_State3 =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State3") or "unknown")
-    print("network string ICF_MP_State4 =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State4") or "unknown")
-    print("remote light count =", table.Count(ICF_MP_RemoteLights or {}))
-    print("last sent active =", tostring(ICF_MP_LastSentActive))
-    print("---------------------------------------------")
+    FF_DiscardOutput("----- ICFL Multiplayer Visibility Status -----")
+    FF_DiscardOutput("local visibility send enabled =", SafeConVarBool("cflash_multiplayer_visibility", false))
+    FF_DiscardOutput("show other players =", SafeConVarBool("cflash_multiplayer_show_others", true))
+    FF_DiscardOutput("remote Lightspill enabled =", SafeConVarBool("cflash_multiplayer_remote_lightspill", false))
+    FF_DiscardOutput("remote beam textures enabled =", SafeConVarBool("cflash_multiplayer_remote_textures", true))
+    FF_DiscardOutput("remote cosmetic emitter glow =", SafeConVarBool("cflash_multiplayer_remote_emitter_glow", true))
+    FF_DiscardOutput("remote emitter offset f/r/u =", SafeConVarFloat("cflash_multiplayer_emitter_forward", 8), SafeConVarFloat("cflash_multiplayer_emitter_right", 0), SafeConVarFloat("cflash_multiplayer_emitter_up", 0))
+    FF_DiscardOutput("network string ICF_MP_State =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State") or "unknown")
+    FF_DiscardOutput("network string ICF_MP_State2 =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State2") or "unknown")
+    FF_DiscardOutput("network string ICF_MP_State3 =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State3") or "unknown")
+    FF_DiscardOutput("network string ICF_MP_State4 =", util and util.NetworkStringToID and util.NetworkStringToID("ICF_MP_State4") or "unknown")
+    FF_DiscardOutput("remote light count =", table.Count(ICF_MP_RemoteLights or {}))
+    FF_DiscardOutput("last sent active =", tostring(ICF_MP_LastSentActive))
+    FF_DiscardOutput("---------------------------------------------")
 end)
 
 
@@ -3587,7 +3597,7 @@ concommand.Add("cflash_vmanip_bridge_enable", function()
         ICF_RequestVManipBridgeWeapon()
     end)
 
-    chat.AddText(
+    FF_DiscardNotification(
         Color(120, 220, 255), "[Immersive Custom Flashlight] ",
         Color(255, 255, 255), "Enabled VManip compatibility and experimental empty-hands bridge."
     )
@@ -3595,118 +3605,118 @@ end)
 
 
 concommand.Add("cflash_vmanip_webknight_model_follow_debug", function()
-    print("---- ICF WebKnight Model-Follows-Light Debug ----")
-    print("model follow enabled =", SafeConVarBool("cflash_vmanip_webknight_model_follow_light", true))
-    print("light follows anim =", ICF_WebKnightLightShouldFollowAnim())
-    print("model follow active =", ICF_WebKnightModelFollowActive())
-    print("follow delay =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_delay", 0.85))
-    print("follow strength =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_strength", 12))
-    print("follow max angle =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_max_angle", 35))
-    print("uses local angles =", SafeConVarBool("cflash_vmanip_webknight_model_follow_local", true))
-    print("bone follow =", SafeConVarBool("cflash_vmanip_webknight_model_follow_bones", true))
-    print("bone scale =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_bone_scale", 0.22))
-    print("bone side =", SafeConVarString("cflash_vmanip_webknight_model_follow_side", "main_left"))
-    print("fade time =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_fade_time", 0.55))
-    print("deadzone =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_deadzone", 0.75))
-    print("fade =", wbkModelFollowFade)
-    print("pitch sign =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_pitch_sign", 1))
-    print("yaw sign =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_yaw_sign", 1))
-    print("camera-relative follow =", SafeConVarBool("cflash_vmanip_webknight_model_follow_use_camera_relative", true))
-    print("return strength =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_return_strength", 5))
-    print("left weight =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_left_weight", 0.95))
-    print("spring =", SafeConVarFloat("cflash_vmanip_webknight_proc_spring", 72))
-    print("damping =", SafeConVarFloat("cflash_vmanip_webknight_proc_damping", 15))
-    print("max speed =", SafeConVarFloat("cflash_vmanip_webknight_proc_max_speed", 115))
-    print("procedural lag =", SafeConVarFloat("cflash_vmanip_webknight_proc_lag", 0.025))
-    print("axis preset =", SafeConVarString("cflash_vmanip_webknight_proc_axis_preset", "swapped"))
-    print("hand latch =", SafeConVarFloat("cflash_vmanip_webknight_hand_latch", 1))
-    print("pseudo weld =", SafeConVarBool("cflash_vmanip_webknight_hand_pseudo_weld", true))
-    print("hand pitch flip =", SafeConVarBool("cflash_vmanip_webknight_hand_pitch_flip", true))
-    print("hand pos weld =", SafeConVarBool("cflash_vmanip_webknight_hand_pos_weld", true))
-    print("hand pos weld amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_pos_weld_amount", 0))
-    print("hand pos weld forearm =", SafeConVarFloat("cflash_vmanip_webknight_hand_pos_weld_forearm", 0))
-    print("stiff arm =", SafeConVarBool("cflash_vmanip_webknight_stiff_arm", false))
-    print("handle support arm =", SafeConVarBool("cflash_vmanip_webknight_handle_support_arm", true))
-    print("hand side yaw fix =", SafeConVarBool("cflash_vmanip_webknight_hand_side_yaw_fix", true))
-    print("hand side amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_side_amount", 0.56))
-    print("hand vertical amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_vertical_amount", 0.72))
-    print("hand handle roll amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_handle_roll_amount", 0.72))
-    print("hand vertical roll amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_vertical_roll_amount", 0.12))
-    print("pitch vel =", wbkModelFollowPitchVel)
-    print("yaw vel =", wbkModelFollowYawVel)
-    print("smoothed pitch =", wbkModelFollowPitch)
-    print("smoothed yaw =", wbkModelFollowYaw)
-    print("anim light follow remaining =", math.Round(math.max((wbkLightFollowsAnimUntil or 0) - CurTime(), 0), 3))
-    print("anim light blend remaining =", math.Round(math.max((ICF_WBKAnimLightBlendOutUntil or 0) - CurTime(), 0), 3))
-    print("anim light last transform =", tostring(ICF_WBKAnimLightLastPos ~= nil and ICF_WBKAnimLightLastAng ~= nil))
-    print("model follow starts in =", math.Round(math.max((wbkModelFollowsLightAfter or 0) - CurTime(), 0), 3))
-    print("has desired angle =", wbkLastDesiredLightAng ~= nil)
+    FF_DiscardOutput("---- ICF WebKnight Model-Follows-Light Debug ----")
+    FF_DiscardOutput("model follow enabled =", SafeConVarBool("cflash_vmanip_webknight_model_follow_light", true))
+    FF_DiscardOutput("light follows anim =", ICF_WebKnightLightShouldFollowAnim())
+    FF_DiscardOutput("model follow active =", ICF_WebKnightModelFollowActive())
+    FF_DiscardOutput("follow delay =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_delay", 0.85))
+    FF_DiscardOutput("follow strength =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_strength", 12))
+    FF_DiscardOutput("follow max angle =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_max_angle", 35))
+    FF_DiscardOutput("uses local angles =", SafeConVarBool("cflash_vmanip_webknight_model_follow_local", true))
+    FF_DiscardOutput("bone follow =", SafeConVarBool("cflash_vmanip_webknight_model_follow_bones", true))
+    FF_DiscardOutput("bone scale =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_bone_scale", 0.22))
+    FF_DiscardOutput("bone side =", SafeConVarString("cflash_vmanip_webknight_model_follow_side", "main_left"))
+    FF_DiscardOutput("fade time =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_fade_time", 0.55))
+    FF_DiscardOutput("deadzone =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_deadzone", 0.75))
+    FF_DiscardOutput("fade =", wbkModelFollowFade)
+    FF_DiscardOutput("pitch sign =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_pitch_sign", 1))
+    FF_DiscardOutput("yaw sign =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_yaw_sign", 1))
+    FF_DiscardOutput("camera-relative follow =", SafeConVarBool("cflash_vmanip_webknight_model_follow_use_camera_relative", true))
+    FF_DiscardOutput("return strength =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_return_strength", 5))
+    FF_DiscardOutput("left weight =", SafeConVarFloat("cflash_vmanip_webknight_model_follow_left_weight", 0.95))
+    FF_DiscardOutput("spring =", SafeConVarFloat("cflash_vmanip_webknight_proc_spring", 72))
+    FF_DiscardOutput("damping =", SafeConVarFloat("cflash_vmanip_webknight_proc_damping", 15))
+    FF_DiscardOutput("max speed =", SafeConVarFloat("cflash_vmanip_webknight_proc_max_speed", 115))
+    FF_DiscardOutput("procedural lag =", SafeConVarFloat("cflash_vmanip_webknight_proc_lag", 0.025))
+    FF_DiscardOutput("axis preset =", SafeConVarString("cflash_vmanip_webknight_proc_axis_preset", "swapped"))
+    FF_DiscardOutput("hand latch =", SafeConVarFloat("cflash_vmanip_webknight_hand_latch", 1))
+    FF_DiscardOutput("pseudo weld =", SafeConVarBool("cflash_vmanip_webknight_hand_pseudo_weld", true))
+    FF_DiscardOutput("hand pitch flip =", SafeConVarBool("cflash_vmanip_webknight_hand_pitch_flip", true))
+    FF_DiscardOutput("hand pos weld =", SafeConVarBool("cflash_vmanip_webknight_hand_pos_weld", true))
+    FF_DiscardOutput("hand pos weld amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_pos_weld_amount", 0))
+    FF_DiscardOutput("hand pos weld forearm =", SafeConVarFloat("cflash_vmanip_webknight_hand_pos_weld_forearm", 0))
+    FF_DiscardOutput("stiff arm =", SafeConVarBool("cflash_vmanip_webknight_stiff_arm", false))
+    FF_DiscardOutput("handle support arm =", SafeConVarBool("cflash_vmanip_webknight_handle_support_arm", true))
+    FF_DiscardOutput("hand side yaw fix =", SafeConVarBool("cflash_vmanip_webknight_hand_side_yaw_fix", true))
+    FF_DiscardOutput("hand side amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_side_amount", 0.56))
+    FF_DiscardOutput("hand vertical amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_vertical_amount", 0.72))
+    FF_DiscardOutput("hand handle roll amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_handle_roll_amount", 0.72))
+    FF_DiscardOutput("hand vertical roll amount =", SafeConVarFloat("cflash_vmanip_webknight_hand_vertical_roll_amount", 0.12))
+    FF_DiscardOutput("pitch vel =", wbkModelFollowPitchVel)
+    FF_DiscardOutput("yaw vel =", wbkModelFollowYawVel)
+    FF_DiscardOutput("smoothed pitch =", wbkModelFollowPitch)
+    FF_DiscardOutput("smoothed yaw =", wbkModelFollowYaw)
+    FF_DiscardOutput("anim light follow remaining =", math.Round(math.max((wbkLightFollowsAnimUntil or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("anim light blend remaining =", math.Round(math.max((ICF_WBKAnimLightBlendOutUntil or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("anim light last transform =", tostring(ICF_WBKAnimLightLastPos ~= nil and ICF_WBKAnimLightLastAng ~= nil))
+    FF_DiscardOutput("model follow starts in =", math.Round(math.max((wbkModelFollowsLightAfter or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("has desired angle =", wbkLastDesiredLightAng ~= nil)
 
     local mdl = ICF_GetWebKnightVManipGestureModel()
-    print("gesture model valid =", IsValid(mdl))
+    FF_DiscardOutput("gesture model valid =", IsValid(mdl))
 
     if IsValid(mdl) then
-        print("model angles =", tostring(mdl:GetAngles()))
+        FF_DiscardOutput("model angles =", tostring(mdl:GetAngles()))
         local att = mdl:LookupAttachment("FlashLight")
-        print("FlashLight attachment id =", att or 0)
+        FF_DiscardOutput("FlashLight attachment id =", att or 0)
 
         if att and att > 0 then
             local posang = mdl:GetAttachment(att)
-            print("attachment valid =", posang ~= nil)
+            FF_DiscardOutput("attachment valid =", posang ~= nil)
 
             if posang then
-                print("attachment corrected angle =", tostring(posang.Ang + Angle(180, -10, 0)))
+                FF_DiscardOutput("attachment corrected angle =", tostring(posang.Ang + Angle(180, -10, 0)))
             end
         end
     end
 
     if wbkLastDesiredLightAng then
-        print("desired light angle =", tostring(wbkLastDesiredLightAng))
+        FF_DiscardOutput("desired light angle =", tostring(wbkLastDesiredLightAng))
     end
 end)
 
 concommand.Add("cflash_vmanip_webknight_follow_debug", function()
-    print("---- ICF WebKnight Light Follow Debug ----")
-    print("compat =", SafeConVarBool("cflash_vmanip_compat", false))
-    print("mode =", ICF_GetVManipMode())
-    print("follow light =", SafeConVarBool("cflash_vmanip_webknight_follow_light", true))
-    print("third-person active =", ICF_IsThirdPersonActive(LocalPlayer()))
-    print("WBK shoulder =", WBK_IsFlashlightOnShoulder == true)
+    FF_DiscardOutput("---- ICF WebKnight Light Follow Debug ----")
+    FF_DiscardOutput("compat =", SafeConVarBool("cflash_vmanip_compat", false))
+    FF_DiscardOutput("mode =", ICF_GetVManipMode())
+    FF_DiscardOutput("follow light =", SafeConVarBool("cflash_vmanip_webknight_follow_light", true))
+    FF_DiscardOutput("third-person active =", ICF_IsThirdPersonActive(LocalPlayer()))
+    FF_DiscardOutput("WBK shoulder =", WBK_IsFlashlightOnShoulder == true)
 
     local mdl = ICF_GetWebKnightVManipGestureModel()
-    print("gesture model valid =", IsValid(mdl))
+    FF_DiscardOutput("gesture model valid =", IsValid(mdl))
 
     if IsValid(mdl) then
         local att = mdl:LookupAttachment("FlashLight")
-        print("FlashLight attachment id =", att or 0)
+        FF_DiscardOutput("FlashLight attachment id =", att or 0)
 
         if att and att > 0 then
             local posang = mdl:GetAttachment(att)
-            print("attachment valid =", posang ~= nil)
+            FF_DiscardOutput("attachment valid =", posang ~= nil)
             if posang then
-                print("attachment pos =", tostring(posang.Pos))
-                print("attachment ang =", tostring(posang.Ang))
+                FF_DiscardOutput("attachment pos =", tostring(posang.Pos))
+                FF_DiscardOutput("attachment ang =", tostring(posang.Ang))
             end
         end
     end
 
     local pos, ang = ICF_GetWebKnightVManipLightTransform()
-    print("using follow transform =", pos ~= nil and ang ~= nil)
+    FF_DiscardOutput("using follow transform =", pos ~= nil and ang ~= nil)
 
     if pos and ang then
-        print("light pos =", tostring(pos))
-        print("light ang =", tostring(ang))
+        FF_DiscardOutput("light pos =", tostring(pos))
+        FF_DiscardOutput("light ang =", tostring(ang))
     end
 end)
 
 concommand.Add("cflash_vmanip_webknight_spam_debug", function()
-    print("---- ICF WebKnight VManip Spam Debug ----")
-    print("mode =", ICF_GetVManipMode())
-    print("effective lockout =", ICF_GetVManipLockout())
-    print("nextVManipAnimAllowed remaining =", math.Round(math.max((nextVManipAnimAllowed or 0) - CurTime(), 0), 3))
-    print("pendingVManipToggle =", pendingVManipToggle)
-    print("enabled light state =", enabled)
-    print("third-person active =", ICF_IsThirdPersonActive(LocalPlayer()))
+    FF_DiscardOutput("---- ICF WebKnight VManip Spam Debug ----")
+    FF_DiscardOutput("mode =", ICF_GetVManipMode())
+    FF_DiscardOutput("effective lockout =", ICF_GetVManipLockout())
+    FF_DiscardOutput("nextVManipAnimAllowed remaining =", math.Round(math.max((nextVManipAnimAllowed or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("pendingVManipToggle =", pendingVManipToggle)
+    FF_DiscardOutput("enabled light state =", enabled)
+    FF_DiscardOutput("third-person active =", ICF_IsThirdPersonActive(LocalPlayer()))
 
     if VManip then
         local current = ""
@@ -3721,12 +3731,12 @@ concommand.Add("cflash_vmanip_webknight_spam_debug", function()
             if ok then active = result end
         end
 
-        print("VManip current anim =", current)
-        print("VManip active =", active)
-        print("Flashlight_In registered =", VManip.GetAnim and VManip:GetAnim("Flashlight_In") ~= nil)
-        print("Flashlight_Out registered =", VManip.GetAnim and VManip:GetAnim("Flashlight_Out") ~= nil)
+        FF_DiscardOutput("VManip current anim =", current)
+        FF_DiscardOutput("VManip active =", active)
+        FF_DiscardOutput("Flashlight_In registered =", VManip.GetAnim and VManip:GetAnim("Flashlight_In") ~= nil)
+        FF_DiscardOutput("Flashlight_Out registered =", VManip.GetAnim and VManip:GetAnim("Flashlight_Out") ~= nil)
     else
-        print("VManip missing")
+        FF_DiscardOutput("VManip missing")
     end
 end)
 
@@ -3735,66 +3745,66 @@ concommand.Add("cflash_vmanip_webknight_debug", function()
     local bindHooks = hooks.PlayerBindPress or {}
     local thinkHooks = hooks.Think or {}
 
-    print("---- ICF WebKnight VManip Debug ----")
-    print("compat enabled =", SafeConVarBool("cflash_vmanip_compat", false))
-    print("vmanip mode =", ICF_GetVManipMode())
-    print("VManip exists =", VManip ~= nil)
-    print("Flashlight_In anim =", VManip and isfunction(VManip.GetAnim) and VManip:GetAnim("Flashlight_In") ~= nil)
-    print("Flashlight_Out anim =", VManip and isfunction(VManip.GetAnim) and VManip:GetAnim("Flashlight_Out") ~= nil)
-    print("Flashlight_EnableDisable anim =", VManip and isfunction(VManip.GetAnim) and VManip:GetAnim("Flashlight_EnableDisable") ~= nil)
-    print("WBK PlayerBindPress hook active =", bindHooks.FlashLight_KeyPress ~= nil)
-    print("WBK Think hook active =", thinkHooks.FlashLight_EnableFlashlight ~= nil)
-    print("Default PlayerBindPress hook active =", bindHooks.SmartFlashlightAnim ~= nil)
-    print("stored WBK bind hook =", storedWBKFlashlightKeyHook ~= nil)
-    print("stored WBK think hook =", storedWBKFlashlightThinkHook ~= nil)
-    print("stored Default hook =", storedSmartFlashlightAnimHook ~= nil)
+    FF_DiscardOutput("---- ICF WebKnight VManip Debug ----")
+    FF_DiscardOutput("compat enabled =", SafeConVarBool("cflash_vmanip_compat", false))
+    FF_DiscardOutput("vmanip mode =", ICF_GetVManipMode())
+    FF_DiscardOutput("VManip exists =", VManip ~= nil)
+    FF_DiscardOutput("Flashlight_In anim =", VManip and isfunction(VManip.GetAnim) and VManip:GetAnim("Flashlight_In") ~= nil)
+    FF_DiscardOutput("Flashlight_Out anim =", VManip and isfunction(VManip.GetAnim) and VManip:GetAnim("Flashlight_Out") ~= nil)
+    FF_DiscardOutput("Flashlight_EnableDisable anim =", VManip and isfunction(VManip.GetAnim) and VManip:GetAnim("Flashlight_EnableDisable") ~= nil)
+    FF_DiscardOutput("WBK PlayerBindPress hook active =", bindHooks.FlashLight_KeyPress ~= nil)
+    FF_DiscardOutput("WBK Think hook active =", thinkHooks.FlashLight_EnableFlashlight ~= nil)
+    FF_DiscardOutput("Default PlayerBindPress hook active =", bindHooks.SmartFlashlightAnim ~= nil)
+    FF_DiscardOutput("stored WBK bind hook =", storedWBKFlashlightKeyHook ~= nil)
+    FF_DiscardOutput("stored WBK think hook =", storedWBKFlashlightThinkHook ~= nil)
+    FF_DiscardOutput("stored Default hook =", storedSmartFlashlightAnimHook ~= nil)
 end)
 
 concommand.Add("cflash_vmanip_lockout_debug", function()
-    print("---- ICF VManip Lockout Debug ----")
-    print("raw cflash_vmanip_anim_lockout =", SafeConVarFloat("cflash_vmanip_anim_lockout", 1.15))
-    print("effective lockout =", ICF_GetVManipLockout())
-    print("nextVManipAnimAllowed remaining =", math.Round(math.max(nextVManipAnimAllowed - CurTime(), 0), 2))
-    print("vmanipBindHandledUntil remaining =", math.Round(math.max(vmanipBindHandledUntil - CurTime(), 0), 2))
-    print("nextCustomToggleTime remaining =", math.Round(math.max(nextCustomToggleTime - CurTime(), 0), 2))
+    FF_DiscardOutput("---- ICF VManip Lockout Debug ----")
+    FF_DiscardOutput("raw cflash_vmanip_anim_lockout =", SafeConVarFloat("cflash_vmanip_anim_lockout", 1.15))
+    FF_DiscardOutput("effective lockout =", ICF_GetVManipLockout())
+    FF_DiscardOutput("nextVManipAnimAllowed remaining =", math.Round(math.max(nextVManipAnimAllowed - CurTime(), 0), 2))
+    FF_DiscardOutput("vmanipBindHandledUntil remaining =", math.Round(math.max(vmanipBindHandledUntil - CurTime(), 0), 2))
+    FF_DiscardOutput("nextCustomToggleTime remaining =", math.Round(math.max(nextCustomToggleTime - CurTime(), 0), 2))
 end)
 
 
 concommand.Add("cflash_vmanip_bridge_debug", function()
     local ply = LocalPlayer()
-    print("---- ICF VManip Bridge Debug ----")
-    print("bridge enabled =", SafeConVarBool("cflash_vmanip_emptyhands_bridge", false))
-    print("vmanip compat =", SafeConVarBool("cflash_vmanip_compat", false))
-    print("player valid =", IsValid(ply))
+    FF_DiscardOutput("---- ICF VManip Bridge Debug ----")
+    FF_DiscardOutput("bridge enabled =", SafeConVarBool("cflash_vmanip_emptyhands_bridge", false))
+    FF_DiscardOutput("vmanip compat =", SafeConVarBool("cflash_vmanip_compat", false))
+    FF_DiscardOutput("player valid =", IsValid(ply))
 
     if IsValid(ply) then
         local active = ply:GetActiveWeapon()
-        print("active valid =", IsValid(active))
-        print("active class =", IsValid(active) and active:GetClass() or "nil")
-        print("hands-like active =", ICF_IsHandsLikeWeapon(active))
-        print("hands class list =", SafeConVarString("cflash_vmanip_bridge_hands_classes", ""))
-        print("has bridge weapon =", ply:HasWeapon("weapon_icf_vmanip_bridge"))
+        FF_DiscardOutput("active valid =", IsValid(active))
+        FF_DiscardOutput("active class =", IsValid(active) and active:GetClass() or "nil")
+        FF_DiscardOutput("hands-like active =", ICF_IsHandsLikeWeapon(active))
+        FF_DiscardOutput("hands class list =", SafeConVarString("cflash_vmanip_bridge_hands_classes", ""))
+        FF_DiscardOutput("has bridge weapon =", ply:HasWeapon("weapon_icf_vmanip_bridge"))
     end
 
-    print("pending until =", math.Round(math.max(bridgeWeaponPendingUntil - CurTime(), 0), 2))
+    FF_DiscardOutput("pending until =", math.Round(math.max(bridgeWeaponPendingUntil - CurTime(), 0), 2))
 
     if not SafeConVarBool("cflash_vmanip_emptyhands_bridge", false) then
-        print("Bridge is OFF. Run cflash_vmanip_bridge_enable or enable the menu checkbox.")
+        FF_DiscardOutput("Bridge is OFF. Run cflash_vmanip_bridge_enable or enable the menu checkbox.")
     end
 
-    chat.AddText(Color(120, 220, 255), "[Immersive Custom Flashlight] ", Color(255, 255, 255), "Bridge debug printed to console.")
+    FF_DiscardNotification(Color(120, 220, 255), "[Immersive Custom Flashlight] ", Color(255, 255, 255), "Bridge debug printed to console.")
 end)
 
 
 concommand.Add("cflash_test_manual_vmanip_draw", function()
     local started = ForcePlayVManipFlashlightAnim()
 
-    print("[Immersive Custom Flashlight] Manual VManip draw test started =", started)
-    print("[Immersive Custom Flashlight] VManip.VMGesture valid =", IsValid(VManip and VManip.VMGesture))
-    print("[Immersive Custom Flashlight] VManip.VMCam valid =", IsValid(VManip and VManip.VMCam))
-    print("[Immersive Custom Flashlight] Forced empty-hands flag =", icfForcedEmptyHandsVManip)
+    FF_DiscardOutput("[Immersive Custom Flashlight] Manual VManip draw test started =", started)
+    FF_DiscardOutput("[Immersive Custom Flashlight] VManip.VMGesture valid =", IsValid(VManip and VManip.VMGesture))
+    FF_DiscardOutput("[Immersive Custom Flashlight] VManip.VMCam valid =", IsValid(VManip and VManip.VMCam))
+    FF_DiscardOutput("[Immersive Custom Flashlight] Forced empty-hands flag =", icfForcedEmptyHandsVManip)
 
-    chat.AddText(
+    FF_DiscardNotification(
         Color(120, 220, 255), "[Immersive Custom Flashlight] ",
         Color(255, 255, 255), "Manual VManip draw test ran. Check for the flashlight animation."
     )
@@ -3812,9 +3822,9 @@ concommand.Add("cflash_test_vmanip_anim", function()
     local played = TryPlayVManipFlashlightAnim()
 
     if played then
-        chat.AddText(Color(120, 220, 255), "[Immersive Custom Flashlight] ", Color(255, 255, 255), "VManip animation call succeeded. If you did not see it, run cflash_vmanip_debug and send the console output.")
+        FF_DiscardNotification(Color(120, 220, 255), "[Immersive Custom Flashlight] ", Color(255, 255, 255), "VManip animation call succeeded. If you did not see it, run cflash_vmanip_debug and send the console output.")
     else
-        chat.AddText(Color(120, 220, 255), "[Immersive Custom Flashlight] ", Color(255, 255, 255), "Direct VManip animation call failed. Compatibility will still block stock flashlight and toggle this addon's light normally.")
+        FF_DiscardNotification(Color(120, 220, 255), "[Immersive Custom Flashlight] ", Color(255, 255, 255), "Direct VManip animation call failed. Compatibility will still block stock flashlight and toggle this addon's light normally.")
     end
 end)
 
@@ -3904,10 +3914,10 @@ concommand.Add("cflash_vmanip_debug", function()
     add("manual forced empty-hands until remaining = " .. safe(math.Round(math.max(icfForcedEmptyHandsUntil - CurTime(), 0), 2)))
 
     for _, line in ipairs(lines) do
-        print(line)
+        FF_DiscardOutput(line)
     end
 
-    chat.AddText(
+    FF_DiscardNotification(
         Color(120, 220, 255), "[Immersive Custom Flashlight] ",
         Color(255, 255, 255), "VManip debug printed to console."
     )
@@ -4267,37 +4277,37 @@ end)
 
 
 concommand.Add("cflash_reload_scope_debug", function()
-    print("---- ICF Reload Scope Debug ----")
-    print("ICF_SafeDestroyLight exists =", isfunction(ICF_SafeDestroyLight))
-    print("ICF_TryBatteryReloadRelight exists =", isfunction(ICF_TryBatteryReloadRelight))
-    print("batteryReloading =", batteryReloading)
-    print("batteryReloadWasEnabled =", batteryReloadWasEnabled)
-    print("batteryReloadRelit =", batteryReloadRelit)
-    print("batteryReloadRelightTime remaining =", math.Round(math.max((batteryReloadRelightTime or 0) - CurTime(), 0), 3))
-    print("batteryReloadFlickerEnd remaining =", math.Round(math.max((batteryReloadFlickerEnd or 0) - CurTime(), 0), 3))
-    print("startup flicker remaining =", math.Round(math.max((startupFlickerEnd or 0) - CurTime(), 0), 3))
-    print("startup flicker enabled =", SafeConVarBool("cflash_startup_flicker_enabled", false))
+    FF_DiscardOutput("---- ICF Reload Scope Debug ----")
+    FF_DiscardOutput("ICF_SafeDestroyLight exists =", isfunction(ICF_SafeDestroyLight))
+    FF_DiscardOutput("ICF_TryBatteryReloadRelight exists =", isfunction(ICF_TryBatteryReloadRelight))
+    FF_DiscardOutput("batteryReloading =", batteryReloading)
+    FF_DiscardOutput("batteryReloadWasEnabled =", batteryReloadWasEnabled)
+    FF_DiscardOutput("batteryReloadRelit =", batteryReloadRelit)
+    FF_DiscardOutput("batteryReloadRelightTime remaining =", math.Round(math.max((batteryReloadRelightTime or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("batteryReloadFlickerEnd remaining =", math.Round(math.max((batteryReloadFlickerEnd or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("startup flicker remaining =", math.Round(math.max((startupFlickerEnd or 0) - CurTime(), 0), 3))
+    FF_DiscardOutput("startup flicker enabled =", SafeConVarBool("cflash_startup_flicker_enabled", false))
 end)
 
 concommand.Add("cflash_scope_debug", function()
-    print("---- ICF Scope Debug ----")
-    print("DestroyLight local exists =", isfunction(DestroyLight))
-    print("CreateLight local exists =", isfunction(CreateLight))
-    print("DoFlashlightToggle local exists =", isfunction(DoFlashlightToggle))
-    print("proj valid =", IsValid(proj))
+    FF_DiscardOutput("---- ICF Scope Debug ----")
+    FF_DiscardOutput("DestroyLight local exists =", isfunction(DestroyLight))
+    FF_DiscardOutput("CreateLight local exists =", isfunction(CreateLight))
+    FF_DiscardOutput("DoFlashlightToggle local exists =", isfunction(DoFlashlightToggle))
+    FF_DiscardOutput("proj valid =", IsValid(proj))
 end)
 
 concommand.Add("cflash_battery_debug", function()
-    print("---- ICF Battery Debug ----")
-    print("battery enabled =", ICF_BatteryEnabled())
-    print("battery level =", math.Round(ICF_GetBatteryLevel(), 2))
-    print("spare batteries =", ICF_GetSpareBatteryCount() .. "/" .. ICF_GetMaxSpareBatteries())
-    print("battery reload enabled =", SafeConVarBool("cflash_battery_reload_enabled", true))
-    print("battery reload key =", GetBatteryReloadKey())
-    print("allow normal reload key =", SafeConVarBool("cflash_battery_reload_allow_weapon_reload", false))
-    print("drain per second =", math.Clamp(SafeConVarFloat("cflash_battery_drain_rate", 1.25), 0, 100))
-    print("recharge per second =", math.Clamp(SafeConVarFloat("cflash_battery_recharge_rate", 2.5), 0, 100))
-    print("estimated full-drain seconds =", math.Round(100 / math.max(math.Clamp(SafeConVarFloat("cflash_battery_drain_rate", 1.25), 0, 100), 0.001), 2))
+    FF_DiscardOutput("---- ICF Battery Debug ----")
+    FF_DiscardOutput("battery enabled =", ICF_BatteryEnabled())
+    FF_DiscardOutput("battery level =", math.Round(ICF_GetBatteryLevel(), 2))
+    FF_DiscardOutput("spare batteries =", ICF_GetSpareBatteryCount() .. "/" .. ICF_GetMaxSpareBatteries())
+    FF_DiscardOutput("battery reload enabled =", SafeConVarBool("cflash_battery_reload_enabled", true))
+    FF_DiscardOutput("battery reload key =", GetBatteryReloadKey())
+    FF_DiscardOutput("allow normal reload key =", SafeConVarBool("cflash_battery_reload_allow_weapon_reload", false))
+    FF_DiscardOutput("drain per second =", math.Clamp(SafeConVarFloat("cflash_battery_drain_rate", 1.25), 0, 100))
+    FF_DiscardOutput("recharge per second =", math.Clamp(SafeConVarFloat("cflash_battery_recharge_rate", 2.5), 0, 100))
+    FF_DiscardOutput("estimated full-drain seconds =", math.Round(100 / math.max(math.Clamp(SafeConVarFloat("cflash_battery_drain_rate", 1.25), 0, 100), 0.001), 2))
 end)
 
 
@@ -4370,25 +4380,25 @@ hook.Add("OnReloaded", "CustomFlashlightCleanupReload", DestroyLight)
 
 
 concommand.Add("cflash_gcal_status", function()
-    print("----- ICFL GCAL Minimal Shim Status -----")
-    print("Animation compatibility enabled = " .. tostring(SafeConVarBool("cflash_vmanip_compat", false)))
-    print("Raw animation backend cvar = " .. tostring(SafeConVarString("cflash_vmanip_mode", "default")))
-    print("Effective ICFL animation logic = " .. tostring(ICF_GetVManipMode and ICF_GetVManipMode() or "nil"))
-    print("GCAL exists = " .. tostring(GCAL ~= nil))
-    print("VManip exists = " .. tostring(VManip ~= nil))
+    FF_DiscardOutput("----- ICFL GCAL Minimal Shim Status -----")
+    FF_DiscardOutput("Animation compatibility enabled = " .. tostring(SafeConVarBool("cflash_vmanip_compat", false)))
+    FF_DiscardOutput("Raw animation backend cvar = " .. tostring(SafeConVarString("cflash_vmanip_mode", "default")))
+    FF_DiscardOutput("Effective ICFL animation logic = " .. tostring(ICF_GetVManipMode and ICF_GetVManipMode() or "nil"))
+    FF_DiscardOutput("GCAL exists = " .. tostring(GCAL ~= nil))
+    FF_DiscardOutput("VManip exists = " .. tostring(VManip ~= nil))
     if VManip and isfunction(VManip.GetCurrentAnim) then
-        print("Current VManip/GCAL shim anim = " .. tostring(VManip:GetCurrentAnim()))
+        FF_DiscardOutput("Current VManip/GCAL shim anim = " .. tostring(VManip:GetCurrentAnim()))
     end
     if VManip and isfunction(VManip.GetAnim) then
-        print("Flashlight_In anim = " .. tostring(VManip:GetAnim("Flashlight_In") ~= nil))
-        print("Flashlight_Out anim = " .. tostring(VManip:GetAnim("Flashlight_Out") ~= nil))
-        print("Flashlight_EnableDisable anim = " .. tostring(VManip:GetAnim("Flashlight_EnableDisable") ~= nil))
+        FF_DiscardOutput("Flashlight_In anim = " .. tostring(VManip:GetAnim("Flashlight_In") ~= nil))
+        FF_DiscardOutput("Flashlight_Out anim = " .. tostring(VManip:GetAnim("Flashlight_Out") ~= nil))
+        FF_DiscardOutput("Flashlight_EnableDisable anim = " .. tostring(VManip:GetAnim("Flashlight_EnableDisable") ~= nil))
     end
-    print("WBK shoulder state = " .. tostring(WBK_IsFlashlightOnShoulder == true))
-    print("ICFL enabled light state = " .. tostring(enabled == true))
-    print("nextVManipAnimAllowed remaining = " .. tostring(math.Round(math.max((nextVManipAnimAllowed or 0) - CurTime(), 0), 2)))
-    print("pendingVManipToggle = " .. tostring(pendingVManipToggle == true))
-    print("GCAL/VManip camera passthrough = enabled for flashlight animations")
-    print("GCAL note = Minimal shim test: cflash_vmanip_mode gcal uses the same WebKnight code path as standard support, with GCAL replacing VManip underneath. No direct GCAL state machine, no attachment-follow.")
-    print("-----------------------------------------")
+    FF_DiscardOutput("WBK shoulder state = " .. tostring(WBK_IsFlashlightOnShoulder == true))
+    FF_DiscardOutput("ICFL enabled light state = " .. tostring(enabled == true))
+    FF_DiscardOutput("nextVManipAnimAllowed remaining = " .. tostring(math.Round(math.max((nextVManipAnimAllowed or 0) - CurTime(), 0), 2)))
+    FF_DiscardOutput("pendingVManipToggle = " .. tostring(pendingVManipToggle == true))
+    FF_DiscardOutput("GCAL/VManip camera passthrough = enabled for flashlight animations")
+    FF_DiscardOutput("GCAL note = Minimal shim test: cflash_vmanip_mode gcal uses the same WebKnight code path as standard support, with GCAL replacing VManip underneath. No direct GCAL state machine, no attachment-follow.")
+    FF_DiscardOutput("-----------------------------------------")
 end)

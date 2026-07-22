@@ -1,0 +1,17 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "foundfootage-messages",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-07-01",
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "foundfootage-messages",
+			"database_id": "91185226-7672-4742-9d60-ee5d0e6e0970",
+			"migrations_dir": "migrations"
+		}
+	]
+}

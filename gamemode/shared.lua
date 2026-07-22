@@ -5,6 +5,11 @@ GM.Author = ""
 GM.Email = ""
 GM.Website = ""
 
+-- The gamemode intentionally suppresses transient notifications, chat notices,
+-- and debug-only console output. Gameplay errors still use normal error paths.
+function FF_DiscardNotification(...) end
+function FF_DiscardOutput(...) end
+
 if SERVER then
     AddCSLuaFile("configuration.lua")
 end

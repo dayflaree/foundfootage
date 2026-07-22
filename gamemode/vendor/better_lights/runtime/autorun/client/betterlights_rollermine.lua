@@ -1,3 +1,6 @@
+-- Found Footage suppresses bundled debug-only console output.
+local print = FF_DiscardOutput
+
 if CLIENT then
     local BL = BetterLights
     local cvar_enable = BL.CreateClientConVar("betterlights_rollermine_enable", "1", true, false, "Enable dynamic light for Rollermines (npc_rollermine)")

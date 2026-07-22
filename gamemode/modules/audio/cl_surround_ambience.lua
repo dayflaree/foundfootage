@@ -194,7 +194,7 @@ local function startAmbience(ply)
     if #tracks == 0 then
         if not warnedMissingTracks then
             warnedMissingTracks = true
-            print(
+            FF_DiscardOutput(
                 "[Found Footage Surround Ambience] No local audio found under sound/"
                     .. ambienceDirectory
                     .. "/"
@@ -242,7 +242,7 @@ local function startAmbience(ply)
         end
 
         if not IsValid(channel) then
-            print(
+            FF_DiscardOutput(
                 "[Found Footage Surround Ambience] Failed to load "
                     .. path
                     .. " ("

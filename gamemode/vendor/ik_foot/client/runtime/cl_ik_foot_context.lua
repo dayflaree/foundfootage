@@ -462,7 +462,7 @@ function IKFoot.AutoApplyModelSettings(ply)
 	end
 
 	local modelShort = string.GetFileFromFilename(info.model or "unknown") or "model"
-	chat.AddText(
+	FF_DiscardNotification(
 		Color(100, 255, 100), "[IK Foot] ",
 		Color(255, 255, 255), "Auto-configured for ",
 		Color(100, 200, 255), modelShort,
@@ -489,6 +489,6 @@ concommand.Add("ik_foot_hard_reset", function()
 	local ply = LocalPlayer()
 	if IsValid(ply) then
 		IKFoot.HardReset(ply)
-		chat.AddText(Color(100, 255, 100), "[IK Foot] ", Color(255, 255, 255), "Hard reset complete - all IK state cleared")
+		FF_DiscardNotification(Color(100, 255, 100), "[IK Foot] ", Color(255, 255, 255), "Hard reset complete - all IK state cleared")
 	end
 end)

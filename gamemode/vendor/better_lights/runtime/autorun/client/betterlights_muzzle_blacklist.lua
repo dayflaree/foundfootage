@@ -158,7 +158,7 @@ if CLIENT then
     local function notify(key, kind, ...)
         local MENU = BL.Menu
         local text = select("#", ...) > 0 and MENU.PhraseFormat(key, ...) or MENU.Phrase(key)
-        notification.AddLegacy(text, kind or NOTIFY_GENERIC, 4)
+        FF_DiscardNotification(text, kind or NOTIFY_GENERIC, 4)
         if FF_PlayUISound then
             FF_PlayUISound(kind == NOTIFY_ERROR and "error" or "confirm_02")
         end

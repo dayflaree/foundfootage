@@ -18,7 +18,7 @@ local function warnOnce(materialName)
     if warned then return end
     warned = true
 
-    MsgC(
+    FF_DiscardOutput(
         Color(255, 170, 70),
         "[Found Footage] Material unavailable: ",
         color_white,

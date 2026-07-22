@@ -1,3 +1,7 @@
+-- Found Footage suppresses bundled notices and debug-only console output.
+local MsgC = FF_DiscardOutput
+local notification = setmetatable({ AddLegacy = FF_DiscardNotification }, { __index = notification })
+
 if CLIENT then
     local BL = BetterLights
     local MF = BL.MuzzleFlash
