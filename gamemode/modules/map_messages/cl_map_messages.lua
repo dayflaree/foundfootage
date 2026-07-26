@@ -394,6 +394,11 @@ local function suppressPauseMenuForComposerEscape()
 end
 
 function FF_ConsumeMapMessagePauseRequest()
+    if readingMessage then
+        stopReading(true)
+        return true
+    end
+
     if IsValid(composer) then
         suppressPauseMenuForComposerEscape()
         closeComposer("cancel_02")
