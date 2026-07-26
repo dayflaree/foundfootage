@@ -15,10 +15,10 @@ local function retireUpstreamRuntime()
     net.Receivers.shadowlightstyle = nil
 end
 
-local function disableLightEnvironment(entity)
+local function applyLightEnvironmentPolicy(entity)
     if not IsValid(entity) or entity:GetClass() ~= "light_environment" then return end
 
-    if tostring(DEFAULTS.c_dis_shb or "1") == "1" then
+    if tostring(DEFAULTS.c_dis_shb or "0") == "1" then
         entity:Fire("TurnOff")
     else
         entity:Fire("TurnOn")
@@ -29,7 +29,7 @@ local function applyMapDefaults()
     retireUpstreamRuntime()
 
     for _, entity in ipairs(ents.FindByClass("light_environment")) do
-        disableLightEnvironment(entity)
+        applyLightEnvironmentPolicy(entity)
     end
 
     local styleIndex = math.Clamp(tonumber(DEFAULTS.c_lightstyle) or 12, 0, 25)
@@ -54,10 +54,10 @@ hook.Add("OnReloaded", "FF_CSMLite_ReloadDefaults", function()
     timer.Simple(0, applyMapDefaults)
 end)
 
-hook.Add("OnEntityCreated", "FF_CSMLite_DisableNewLightEnvironment", function(entity)
+hook.Add("OnEntityCreated", "FF_CSMLite_ApplyLightEnvironmentPolicy", function(entity)
     if not IsValid(entity) or entity:GetClass() ~= "light_environment" then return end
 
     timer.Simple(0, function()
-        disableLightEnvironment(entity)
+        applyLightEnvironmentPolicy(entity)
     end)
 end)

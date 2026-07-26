@@ -783,12 +783,14 @@ FF_CONFIG = {
     CSMLite = {
         Enabled = true,
 
-        -- Exact upstream CSM-Lite defaults. The client module reapplies every
+        -- Gamemode-owned CSM-Lite defaults. The client module reapplies every
         -- value at load and InitPostEntity so archived settings never carry
         -- into a new map.
         Defaults = {
             c_sh_en = "1",
-            c_dis_shb = "1",
+            -- Preserve map-authored light_environment lighting. Lite CSM is
+            -- an enhancement and must never be the sole source of visibility.
+            c_dis_shb = "0",
             c_fullbright = "0",
             c_lightstyle = "12",
             c_sh_res = "8",

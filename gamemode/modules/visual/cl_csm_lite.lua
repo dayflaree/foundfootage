@@ -1,13 +1,13 @@
 -- Gamemode-owned integration of Workshop 3764410031 (Lite CSM).
 -- The original settings menu and client-authoritative server messages are
--- omitted. Exact upstream defaults are restored every time a map loads.
+-- omitted. Gamemode-owned safe defaults are restored every time a map loads.
 
 local config = FF_CONFIG.CSMLite or {}
 if config.Enabled == false then return end
 
 local DEFAULTS = config.Defaults or {
     c_sh_en = "1",
-    c_dis_shb = "1",
+    c_dis_shb = "0",
     c_fullbright = "0",
     c_lightstyle = "12",
     c_sh_res = "8",
@@ -195,10 +195,13 @@ local function updateLamp()
         distance * orthoScale
     )
     lamp:SetEnableShadows(true)
-    lamp:SetNearZ(0)
+    -- A zero NearZ disables ProjectedTexture entirely in Garry's Mod.
+    lamp:SetNearZ(12)
     lamp:SetFarZ(distance * 4)
     lamp:SetAngles(sunAngle)
     lamp:SetTexture("j_shadows")
+    lamp:SetConstantAttenuation(1)
+    lamp:SetLinearAttenuation(0)
     lamp:SetQuadraticAttenuation(0)
     lamp:SetColor(color)
     lamp:SetBrightness(math.max(readNumber("c_sun_br", 96), 0))
